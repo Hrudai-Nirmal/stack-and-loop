@@ -7,9 +7,9 @@ export function WorkflowDiagram() {
         {steps.map((step, index) => (
           <div key={step} className="relative rounded-lg border hairline bg-black/18 p-5">
             {index < steps.length - 1 ? (
-              <span className="absolute top-1/2 -right-4 hidden h-px w-8 bg-[var(--accent-2)]/60 md:block" />
+              <span className="absolute top-1/2 -right-4 hidden h-px w-8 bg-white/42 md:block" />
             ) : null}
-            <p className="font-mono text-xs text-[var(--accent-2)]">
+            <p className="font-mono text-xs text-white/55">
               0{index + 1}
             </p>
             <p className="mt-8 text-lg font-medium text-white">{step}</p>

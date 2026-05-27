@@ -41,7 +41,7 @@ export default function ContactPage() {
           <div className="mt-8 grid gap-6">
             {nextSteps.map((step, index) => (
               <div key={step.title} className="grid grid-cols-[3rem_1fr] gap-4">
-                <div className="grid size-10 place-items-center rounded-full border border-[var(--accent-2)]/35 font-mono text-sm text-[var(--accent-2)]">
+                <div className="grid size-10 place-items-center rounded-full border border-white/24 font-mono text-sm text-white/72">
                   0{index + 1}
                 </div>
                 <div>

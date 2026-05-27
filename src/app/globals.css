@@ -5,12 +5,12 @@
   --foreground: #f5f7fb;
   --muted: #9aa3b7;
   --soft: #c8d0df;
-  --panel: #0b0f1a;
-  --panel-2: #101624;
+  --panel: #0d0d0f;
+  --panel-2: #151517;
   --line: rgba(255, 255, 255, 0.13);
   --line-strong: rgba(255, 255, 255, 0.24);
-  --accent: #536dff;
-  --accent-2: #8aa2ff;
+  --accent: #f4f4f5;
+  --accent-2: #c9c9cc;
   --success: #96f2c7;
 }
 
@@ -37,7 +37,7 @@ body {
 }
 
 ::selection {
-  background: rgba(83, 109, 255, 0.42);
+  background: rgba(255, 255, 255, 0.22);
   color: var(--foreground);
 }
 
@@ -55,9 +55,7 @@ body::before {
   position: fixed;
   inset: 0;
   z-index: -2;
-  background:
-    radial-gradient(circle at 50% 0%, rgba(83, 109, 255, 0.16), transparent 34rem),
-    linear-gradient(180deg, #070914 0%, #05070d 42%, #070a12 100%);
+  background: linear-gradient(180deg, #050505 0%, #09090b 48%, #050505 100%);
 }
 
 body::after {
@@ -90,8 +88,8 @@ body::after {
 
 .surface {
   border: 1px solid var(--line);
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.025));
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.34);
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.065), rgba(255, 255, 255, 0.025));
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.3);
 }
 
 .field {
@@ -110,9 +108,9 @@ body::after {
 }
 
 .field:focus {
-  border-color: rgba(138, 162, 255, 0.72);
+  border-color: rgba(255, 255, 255, 0.54);
   background: rgba(0, 0, 0, 0.28);
-  box-shadow: 0 0 0 4px rgba(83, 109, 255, 0.14);
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.08);
 }
 
 .field::placeholder {
@@ -136,29 +134,8 @@ body::after {
   animation-delay: 220ms;
 }
 
-.trace-line {
-  stroke-dasharray: 12 16;
-  animation: trace 18s linear infinite;
-}
-
-.trace-fast {
-  stroke-dasharray: 10 13;
-  animation: trace 12s linear infinite;
-}
-
-.pulse-dot {
-  transform-box: fill-box;
-  transform-origin: center;
-  animation: pulse-dot 2.6s ease-in-out infinite;
-}
-
 .reduce-motion-only {
   display: none;
-}
-
-.service-sketch-line {
-  stroke-dasharray: 1 10;
-  animation: trace 20s linear infinite;
 }
 
 @keyframes reveal {
@@ -169,24 +146,6 @@ body::after {
   to {
     opacity: 1;
     transform: translateY(0);
-  }
-}
-
-@keyframes trace {
-  to {
-    stroke-dashoffset: -420;
-  }
-}
-
-@keyframes pulse-dot {
-  0%,
-  100% {
-    opacity: 0.55;
-    transform: scale(0.92);
-  }
-  50% {
-    opacity: 1;
-    transform: scale(1.08);
   }
 }
 

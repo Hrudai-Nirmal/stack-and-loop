@@ -14,7 +14,7 @@ export function ProcessTimeline({ compact = false }: { compact?: boolean }) {
             <div className="relative z-10">
               <ProcessVisual variant={step.visualKey} />
               <div className="mt-6 flex items-start gap-4">
-                <div className="grid size-11 shrink-0 place-items-center rounded-full border border-[var(--accent-2)]/35 bg-[var(--panel)] font-mono text-sm text-[var(--accent-2)]">
+                <div className="grid size-11 shrink-0 place-items-center rounded-full border border-white/24 bg-[var(--panel)] font-mono text-sm text-white/72">
                   {step.number}
                 </div>
                 <div>
@@ -46,7 +46,7 @@ export function ProcessTimeline({ compact = false }: { compact?: boolean }) {
             {index < processSteps.length - 1 ? (
               <ArrowRight
                 aria-hidden
-                className="absolute -right-3 top-[5.05rem] z-20 hidden text-[var(--accent-2)] lg:block"
+                className="absolute -right-3 top-[5.05rem] z-20 hidden text-white/56 lg:block"
                 size={22}
               />
             ) : null}
@@ -60,10 +60,9 @@ export function ProcessTimeline({ compact = false }: { compact?: boolean }) {
 function ProcessVisual({ variant }: { variant: ProcessVisualKey }) {
   return (
     <div className="relative h-48 overflow-hidden rounded-lg border hairline bg-black/18">
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_15%,rgba(83,109,255,0.14),transparent_58%)]" />
       <svg
         viewBox="0 0 320 190"
-        className="absolute inset-0 h-full w-full text-[var(--accent-2)]"
+        className="absolute inset-0 h-full w-full text-white/58"
         aria-hidden
       >
         {variant === "map" ? <MapVisual /> : null}
@@ -81,7 +80,7 @@ function MapVisual() {
       <path
         d="M94 64L158 54L224 76M94 64L120 122M158 54L190 118M224 76L190 118M120 122L190 118M120 122L226 140"
         fill="none"
-        stroke="rgba(138,162,255,0.46)"
+        stroke="rgba(255,255,255,0.42)"
         strokeLinecap="round"
         strokeWidth="1.25"
       />
@@ -92,7 +91,7 @@ function MapVisual() {
       <TaskBox x={169} y={101} width={72} labelLines={["Action"]} active />
       <TaskBox x={203} y={131} width={72} labelLines={["Done"]} />
       <circle cx="158" cy="54" r="4" fill="#f7f8ff" />
-      <circle className="pulse-dot" cx="190" cy="118" r="11" fill="rgba(83,109,255,0.24)" />
+      <circle cx="190" cy="118" r="11" fill="rgba(255,255,255,0.1)" />
     </>
   );
 }
@@ -112,7 +111,6 @@ function DesignVisual() {
       <IsoBlock x={181} y={101} height={42} active />
       <IsoBlock x={213} y={84} height={28} />
       <path
-        className="service-sketch-line"
         d="M115 82C145 60 178 68 205 91C221 105 235 106 250 98"
         fill="none"
         stroke="currentColor"
@@ -134,7 +132,6 @@ function BuildVisual() {
         strokeWidth="1.4"
       />
       <path
-        className="trace-fast"
         d="M72 96C106 42 136 46 160 96C184 146 216 150 248 96C216 42 184 46 160 96C136 146 106 150 72 96Z"
         fill="none"
         stroke="currentColor"
@@ -143,7 +140,7 @@ function BuildVisual() {
       />
       <circle cx="72" cy="96" r="14" fill="rgba(255,255,255,0.045)" stroke="rgba(255,255,255,0.26)" />
       <circle cx="160" cy="96" r="6" fill="#f7f8ff" />
-      <circle className="pulse-dot" cx="160" cy="96" r="16" fill="rgba(83,109,255,0.22)" />
+      <circle cx="160" cy="96" r="16" fill="rgba(255,255,255,0.1)" />
       <circle cx="248" cy="96" r="14" fill="rgba(255,255,255,0.045)" stroke="rgba(255,255,255,0.26)" />
     </>
   );
@@ -156,13 +153,13 @@ function InsightsVisual() {
       <path d="M44 64H276M108 64V158" stroke="rgba(255,255,255,0.13)" />
       <path d="M64 51H86M118 51H146M158 51H180" stroke="rgba(255,255,255,0.34)" strokeLinecap="round" />
       <path d="M62 83H88M62 102H80M62 121H90M62 140H76" stroke="rgba(255,255,255,0.28)" strokeLinecap="round" />
-      <rect x="124" y="80" width="48" height="28" rx="5" fill="rgba(83,109,255,0.14)" stroke="currentColor" />
+      <rect x="124" y="80" width="48" height="28" rx="5" fill="rgba(255,255,255,0.08)" stroke="currentColor" />
       <rect x="186" y="80" width="58" height="28" rx="5" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" />
       <path d="M134 95H162M197 95H232" stroke="#f7f8ff" strokeLinecap="round" />
       <path d="M126 136C142 119 158 124 174 129C197 137 204 105 222 101C237 98 246 112 256 106" fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="1.8" />
       <path d="M124 146H170M186 146H244" stroke="rgba(255,255,255,0.15)" strokeLinecap="round" />
       <circle cx="222" cy="101" r="5" fill="#f7f8ff" />
-      <circle className="pulse-dot" cx="222" cy="101" r="13" fill="rgba(83,109,255,0.18)" />
+      <circle cx="222" cy="101" r="13" fill="rgba(255,255,255,0.1)" />
     </>
   );
 }
@@ -188,7 +185,7 @@ function TaskBox({
         width={width}
         height="34"
         rx="6"
-        fill={active ? "rgba(83,109,255,0.16)" : "rgba(255,255,255,0.04)"}
+        fill={active ? "rgba(255,255,255,0.08)" : "rgba(255,255,255,0.04)"}
         stroke={active ? "currentColor" : "rgba(255,255,255,0.24)"}
       />
       {labelLines.map((line, index) => (
@@ -224,11 +221,11 @@ function IsoBlock({
 
   return (
     <g>
-      <path d={left} fill="rgba(83,109,255,0.10)" stroke="rgba(138,162,255,0.22)" />
+      <path d={left} fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)" />
       <path d={right} fill="rgba(255,255,255,0.045)" stroke="rgba(255,255,255,0.17)" />
       <path
         d={top}
-        fill={active ? "rgba(83,109,255,0.24)" : "rgba(255,255,255,0.07)"}
+        fill={active ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.07)"}
         stroke={active ? "currentColor" : "rgba(255,255,255,0.24)"}
       />
       <circle cx={x + 32} cy={y + 2} r="3" fill={active ? "#f7f8ff" : "rgba(247,248,255,0.55)"} />

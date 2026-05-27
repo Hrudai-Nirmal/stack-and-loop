@@ -6,9 +6,10 @@ Stack and Loop is a solo AI workflow automation consultancy for founders, operat
 ## Current Plan
 - Built a fresh Next.js App Router site with TypeScript, Tailwind, ESLint, npm, and Vercel deployment in mind.
 - Launch routes: Home, Services, Process, Examples, Contact.
-- Use a kinetic minimal design inspired by Linear but distinct: deep graphite background, crisp typography, subtle loop motif, restrained accent, low cognitive load, and precise motion.
-- Visual upgrade direction: animated workflow loop with a moving glowing pointer, diagram-first service cards, and a process flow that includes automation insights/dashboard visibility in Step 4.
+- Use a premium monochrome design inspired by Linear but distinct: black/gray/white palette, crisp typography, subtle loop motif, low cognitive load, and restrained motion.
+- Current visual direction: static monochrome landing-page loop, diagram-first service cards, and a process flow that includes automation insights/dashboard visibility in Step 4.
 - Process visual refinement: Step 1 uses interconnected task boxes, Step 2 uses a diagonal 3D agent surface, Step 3 uses a simple loop animation, and Step 4 uses an insights/metrics dashboard.
+- Monochrome reform decisions: header keeps logo left with nav and `Send brief` grouped right at 64px height; homepage hides the footer; top-level section/page headings and descriptions are left-aligned and larger; visible brand UI avoids color except semantic success/error states.
 - Copy voice: clear, calm, confident, human, and low-jargon.
 - Brand: refined Stack and Loop wordmark plus a subtle loop motif.
 - GitHub repository: `https://github.com/Hrudai-Nirmal/stack-and-loop.git`.

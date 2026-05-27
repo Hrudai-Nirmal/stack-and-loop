@@ -24,11 +24,11 @@ export default function ServicesPage() {
 
       <section className="container grid gap-10 py-20 md:grid-cols-[0.85fr_1.15fr] md:py-28">
         <div>
-          <h2 className="text-3xl font-semibold leading-tight text-white md:text-4xl">
+          <h2 className="text-4xl font-semibold leading-tight text-white md:text-5xl">
             The service is not more software. It is a cleaner way for work to
             move.
           </h2>
-          <p className="mt-5 text-lg leading-8 text-[var(--muted)]">
+          <p className="mt-6 text-xl leading-9 text-[var(--muted)]">
             Each engagement starts with the workflow you already have, then
             turns the repeatable parts into a system with useful AI assistance
             and clear human checks.
@@ -52,7 +52,7 @@ export default function ServicesPage() {
               className="rounded-lg border hairline bg-white/[0.03] p-7"
             >
               <ServiceVisual variant={service.visualKey} />
-              <div className="mb-10 mt-7 h-px w-16 bg-[var(--accent-2)]/70" />
+              <div className="mb-10 mt-7 h-px w-16 bg-white/45" />
               <h2 className="text-2xl font-medium text-white">
                 {service.title}
               </h2>

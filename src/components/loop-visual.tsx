@@ -1,114 +1,46 @@
-import { BarChart3, Check, FileText, Sparkles } from "lucide-react";
-import type { ReactNode } from "react";
-
 const loopPath =
-  "M88 282C165 119 286 124 379 276C472 428 593 435 672 282C594 132 473 128 379 276C285 424 165 432 88 282Z";
+  "M78 230C144 91 250 94 330 224C410 354 516 359 584 230C516 101 410 96 330 224C250 352 144 369 78 230Z";
 
-export function LoopVisual() {
+export function StaticLoopVisual() {
   return (
-    <div className="relative mx-auto aspect-[1.38/1] w-full max-w-3xl">
+    <div className="relative mx-auto aspect-[1.45/1] w-full max-w-3xl">
       <svg
-        viewBox="0 0 760 550"
-        className="absolute inset-0 h-full w-full overflow-visible"
+        viewBox="0 0 660 460"
+        className="absolute inset-0 h-full w-full"
         role="img"
-        aria-label="Animated looping workflow diagram"
+        aria-label="Static loop workflow mark"
       >
         <defs>
-          <linearGradient id="loopAccent" x1="90" x2="680" y1="430" y2="120">
-            <stop stopColor="#536dff" />
-            <stop offset="0.52" stopColor="#8aa2ff" />
-            <stop offset="1" stopColor="#536dff" />
+          <linearGradient id="staticLoopStroke" x1="78" x2="584" y1="356" y2="104">
+            <stop stopColor="rgba(255,255,255,0.22)" />
+            <stop offset="0.5" stopColor="rgba(255,255,255,0.92)" />
+            <stop offset="1" stopColor="rgba(255,255,255,0.28)" />
           </linearGradient>
-          <radialGradient id="pointerGlow">
-            <stop offset="0" stopColor="#f7f8ff" />
-            <stop offset="0.35" stopColor="#8aa2ff" />
-            <stop offset="1" stopColor="#536dff" stopOpacity="0" />
-          </radialGradient>
-          <filter id="softGlow" x="-30%" y="-30%" width="160%" height="160%">
-            <feGaussianBlur stdDeviation="4.5" result="blur" />
-            <feMerge>
-              <feMergeNode in="blur" />
-              <feMergeNode in="SourceGraphic" />
-            </feMerge>
-          </filter>
-          <marker
-            id="arrowTip"
-            markerHeight="8"
-            markerWidth="8"
-            orient="auto-start-reverse"
-            refX="7"
-            refY="4"
-            viewBox="0 0 8 8"
-          >
-            <path d="M0 0L8 4L0 8" fill="none" stroke="#8aa2ff" strokeWidth="1.4" />
-          </marker>
         </defs>
-
-        <path id="loopMotionPath" d={loopPath} fill="none" stroke="transparent" />
         <path
           d={loopPath}
           fill="none"
-          stroke="rgba(255,255,255,0.16)"
+          stroke="rgba(255,255,255,0.08)"
+          strokeLinecap="round"
+          strokeWidth="28"
+        />
+        <path
+          d={loopPath}
+          fill="none"
+          stroke="rgba(255,255,255,0.18)"
+          strokeLinecap="round"
           strokeWidth="1.25"
         />
         <path
-          className="trace-fast"
           d={loopPath}
           fill="none"
-          markerEnd="url(#arrowTip)"
-          stroke="url(#loopAccent)"
+          stroke="url(#staticLoopStroke)"
           strokeLinecap="round"
-          strokeWidth="2.25"
-          filter="url(#softGlow)"
+          strokeWidth="2.6"
         />
-
-        <circle cx="379" cy="276" r="6" fill="#f7f8ff" />
-        <circle
-          className="pulse-dot"
-          cx="379"
-          cy="276"
-          r="17"
-          fill="rgba(83,109,255,0.22)"
-        />
-
-        <g className="motion-only" filter="url(#softGlow)">
-          <circle r="18" fill="url(#pointerGlow)" opacity="0.95" />
-          <circle r="5.5" fill="#f7f8ff" />
-          <circle r="9" fill="none" stroke="#8aa2ff" strokeOpacity="0.45" />
-          <animateMotion dur="8.8s" repeatCount="indefinite" rotate="auto">
-            <mpath href="#loopMotionPath" />
-          </animateMotion>
-        </g>
-        <g className="reduce-motion-only" filter="url(#softGlow)">
-          <circle cx="379" cy="276" r="18" fill="url(#pointerGlow)" opacity="0.95" />
-          <circle cx="379" cy="276" r="5.5" fill="#f7f8ff" />
-          <circle cx="379" cy="276" r="9" fill="none" stroke="#8aa2ff" strokeOpacity="0.45" />
-        </g>
+        <circle cx="330" cy="224" r="4" fill="rgba(255,255,255,0.9)" />
+        <circle cx="330" cy="224" r="10" fill="none" stroke="rgba(255,255,255,0.16)" />
       </svg>
-
-      <Node className="left-[4%] top-[43%]" label="Input" icon={<FileText size={22} />} />
-      <Node className="left-[52%] top-[12%]" label="AI assist" icon={<Sparkles size={22} />} />
-      <Node className="left-[52%] bottom-[10%]" label="Insights" icon={<BarChart3 size={22} />} />
-      <Node className="right-[3%] top-[43%]" label="Done" icon={<Check size={22} />} />
-    </div>
-  );
-}
-
-function Node({
-  className,
-  icon,
-  label,
-}: {
-  className: string;
-  icon: ReactNode;
-  label: string;
-}) {
-  return (
-    <div
-      className={`absolute grid size-16 place-items-center rounded-full border border-white/18 bg-[#111725]/88 text-white shadow-[0_18px_50px_rgba(0,0,0,0.45)] backdrop-blur transition duration-300 hover:border-[var(--accent-2)]/50 hover:text-[var(--accent-2)] ${className}`}
-      aria-label={label}
-    >
-      {icon}
     </div>
   );
 }

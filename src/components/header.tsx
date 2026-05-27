@@ -12,37 +12,39 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b hairline bg-[rgba(5,7,13,0.72)] px-5 backdrop-blur-xl">
-      <div className="container flex h-20 items-center justify-between">
+    <header className="fixed inset-x-0 top-0 z-50 border-b hairline bg-[rgba(5,5,5,0.82)] px-5 backdrop-blur-xl">
+      <div className="container flex h-16 items-center justify-between">
         <BrandMark />
-        <nav aria-label="Primary navigation" className="hidden items-center gap-10 md:flex">
-          {navItems.map((item) => {
-            const active = pathname === item.href;
-            return (
-              <Link
-                key={item.href}
-                href={item.href}
-                className="group relative py-3 text-base text-white/72 transition hover:text-white"
-              >
-                {item.label}
-                <span
-                  className={`absolute inset-x-0 -bottom-1 h-px origin-center bg-[var(--accent)] transition ${
-                    active ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                  }`}
-                />
-              </Link>
-            );
-          })}
-        </nav>
-        <Link
-          href="/contact"
-          className="hidden h-11 items-center rounded-lg border hairline px-5 text-sm font-medium text-white/85 transition hover:border-white/35 hover:bg-white/[0.045] lg:inline-flex"
-        >
-          Send brief
-        </Link>
+        <div className="hidden items-center gap-8 md:flex">
+          <nav aria-label="Primary navigation" className="flex items-center gap-8">
+            {navItems.map((item) => {
+              const active = pathname === item.href;
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  className="group relative py-2 text-sm font-medium text-white/66 transition hover:text-white"
+                >
+                  {item.label}
+                  <span
+                    className={`absolute inset-x-0 -bottom-1 h-px origin-center bg-white transition ${
+                      active ? "scale-x-100 opacity-100" : "scale-x-0 opacity-70 group-hover:scale-x-100"
+                    }`}
+                  />
+                </Link>
+              );
+            })}
+          </nav>
+          <Link
+            href="/contact"
+            className="hidden h-10 items-center rounded-lg border hairline px-5 text-sm font-medium text-white/82 transition hover:border-white/38 hover:bg-white/[0.05] lg:inline-flex"
+          >
+            Send brief
+          </Link>
+        </div>
         <button
           type="button"
-          className="inline-grid size-11 place-items-center rounded-lg border hairline text-white md:hidden"
+          className="inline-grid size-10 place-items-center rounded-lg border hairline text-white md:hidden"
           aria-label="Open navigation"
           aria-expanded={isOpen}
           onClick={() => setIsOpen(true)}
@@ -57,7 +59,7 @@ export function Header() {
             <BrandMark />
             <button
               type="button"
-              className="inline-grid size-11 place-items-center rounded-lg border hairline text-white"
+            className="inline-grid size-10 place-items-center rounded-lg border hairline text-white"
               aria-label="Close navigation"
               onClick={() => setIsOpen(false)}
             >

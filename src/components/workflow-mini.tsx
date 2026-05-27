@@ -13,7 +13,7 @@ export function WorkflowMini({ example }: WorkflowMiniProps) {
   return (
     <article className="rounded-lg border hairline bg-white/[0.03] p-6">
       <h3 className="text-xl font-medium text-white">{example.title}</h3>
-      <div className="my-6 flex items-center gap-3 text-[var(--accent-2)]">
+      <div className="my-6 flex items-center gap-3 text-white/58">
         <span className="h-px flex-1 bg-current opacity-40" />
         <ArrowRight size={18} aria-hidden />
         <span className="h-px flex-1 bg-current opacity-40" />

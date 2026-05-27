@@ -7,20 +7,20 @@ export function CTASection() {
       <div className="container surface rounded-lg p-8 md:p-12">
         <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
           <div>
-            <p className="font-mono text-sm uppercase text-[var(--accent-2)]">
+            <p className="font-mono text-sm uppercase text-white/55">
               Start small
             </p>
-            <h2 className="mt-5 max-w-3xl text-4xl font-semibold leading-tight text-white md:text-5xl">
+            <h2 className="mt-5 max-w-4xl text-5xl font-semibold leading-tight text-white md:text-6xl">
               Send the workflow that keeps stealing attention.
             </h2>
-            <p className="mt-5 max-w-2xl text-lg leading-8 text-[var(--muted)]">
+            <p className="mt-6 max-w-3xl text-xl leading-9 text-[var(--muted)] md:text-2xl md:leading-10">
               Share what you are trying to automate, the tools involved, and
               what a better version of the work would feel like.
             </p>
           </div>
           <Link
             href="/contact"
-            className="inline-flex h-14 items-center justify-center gap-3 rounded-lg bg-[var(--accent)] px-6 text-base font-medium text-white transition hover:bg-[#667dff]"
+            className="inline-flex h-14 items-center justify-center gap-3 rounded-lg bg-white px-6 text-base font-medium text-black transition hover:bg-white/88"
           >
             Send project brief
             <ArrowRight size={18} aria-hidden />

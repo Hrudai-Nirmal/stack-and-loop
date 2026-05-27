@@ -1,8 +1,17 @@
+"use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { BrandMark } from "@/components/brand-mark";
 import { navItems } from "@/lib/content";
 
 export function Footer() {
+  const pathname = usePathname();
+
+  if (pathname === "/") {
+    return null;
+  }
+
   return (
     <footer className="border-t hairline px-5">
       <div className="container grid gap-10 py-12 md:grid-cols-[1fr_auto] md:py-16">
@@ -22,7 +31,7 @@ export function Footer() {
         </nav>
       </div>
       <div className="container flex flex-col gap-3 border-t hairline py-6 text-sm text-white/45 md:flex-row md:items-center md:justify-between">
-        <span>© {new Date().getFullYear()} Stack and Loop.</span>
+        <span>&copy; {new Date().getFullYear()} Stack and Loop.</span>
         <span>Solo-run consultancy. Built for clear systems and calmer work.</span>
       </div>
     </footer>
