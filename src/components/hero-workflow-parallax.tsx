@@ -6,34 +6,58 @@ import { HeroParallax } from "@/components/ui/hero-parallax";
 const panels = [
   {
     title: "Intake",
+    summary: "Capture requests cleanly from forms, email, and shared tools.",
+    detail:
+      "Turn scattered requests into structured records with the context needed for a good first response.",
     thumbnail: <IntakePanel />,
   },
   {
     title: "AI triage",
+    summary: "Classify, summarize, and prepare the next best action.",
+    detail:
+      "Use AI for the parts it handles well, while keeping judgement and approval in human hands.",
     thumbnail: <TriagePanel />,
   },
   {
     title: "Routing",
+    summary: "Send work to the right tool, owner, or workflow step.",
+    detail:
+      "Replace manual forwarding with rules, checks, and clean handoffs across the tools already in use.",
     thumbnail: <RoutingPanel />,
   },
   {
     title: "Human review",
+    summary: "Keep approval points visible where quality matters.",
+    detail:
+      "Build the workflow around review moments so automation supports decisions instead of hiding them.",
     thumbnail: <ReviewPanel />,
   },
   {
     title: "Dashboard",
+    summary: "Surface health, bottlenecks, and system visibility.",
+    detail:
+      "Give clients a simple view of what is moving, what is waiting, and where the next improvement lives.",
     thumbnail: <DashboardPanel />,
   },
   {
     title: "Handoff",
+    summary: "Package the output so the next person can act quickly.",
+    detail:
+      "Create consistent status notes, documents, messages, and task updates from the same workflow state.",
     thumbnail: <HandoffPanel />,
   },
   {
     title: "Research",
+    summary: "Collect references and turn them into usable structure.",
+    detail:
+      "Summarize source material, organize findings, and prepare draft-ready inputs without losing traceability.",
     thumbnail: <ResearchPanel />,
   },
   {
     title: "Client delivery",
+    summary: "Coordinate updates, documents, decisions, and next steps.",
+    detail:
+      "Keep client-facing work calm by making progress, blockers, and follow-ups easier to see and manage.",
     thumbnail: <DeliveryPanel />,
   },
 ];

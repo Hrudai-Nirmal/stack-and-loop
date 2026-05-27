@@ -4,6 +4,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import {
   motion,
+  useMotionValueEvent,
   useReducedMotion,
   useScroll,
   useSpring,
@@ -16,9 +17,13 @@ import { Spotlight } from "@/components/ui/spotlight-new";
 export function LandingHero() {
   const sectionRef = React.useRef<HTMLElement>(null);
   const shouldReduceMotion = useReducedMotion();
+  const [heroInteractive, setHeroInteractive] = React.useState(true);
   const { scrollYProgress } = useScroll({
     target: sectionRef,
     offset: ["start start", "end start"],
+  });
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    setHeroInteractive(latest < 0.5);
   });
   const contentOpacity = useSpring(
     useTransform(scrollYProgress, [0, 0.28, 0.46], [1, 1, 0]),
@@ -32,11 +37,15 @@ export function LandingHero() {
     ),
     { stiffness: 120, damping: 24, bounce: 0 },
   );
+  const overlayOpacity = useSpring(
+    useTransform(scrollYProgress, [0, 0.36, 0.58], [1, 1, 0]),
+    { stiffness: 120, damping: 24, bounce: 0 },
+  );
 
   return (
     <section
       ref={sectionRef}
-      className="relative left-1/2 -mt-[6.25rem] min-h-[182vh] w-screen -translate-x-1/2 overflow-clip border-b hairline md:-mt-[7.5rem]"
+      className="relative left-1/2 -mt-[6.25rem] min-h-[315vh] w-screen -translate-x-1/2 overflow-clip border-b hairline md:-mt-[7.5rem]"
     >
       <div className="sticky top-0 h-screen overflow-hidden">
         <Spotlight
@@ -51,11 +60,18 @@ export function LandingHero() {
           xOffset={140}
         />
         <HeroWorkflowParallax scrollTargetRef={sectionRef} />
-        <div className="absolute inset-y-0 left-0 z-[5] w-[78vw] bg-[linear-gradient(90deg,var(--background)_0%,rgba(5,5,5,0.98)_52%,rgba(5,5,5,0.78)_74%,transparent_100%)]" />
-        <div className="container relative z-10 flex h-full items-center px-5">
+        <motion.div
+          style={{ opacity: overlayOpacity }}
+          className="pointer-events-none absolute inset-y-0 left-0 z-[5] w-[78vw] bg-[linear-gradient(90deg,var(--background)_0%,rgba(5,5,5,0.98)_52%,rgba(5,5,5,0.78)_74%,transparent_100%)]"
+        />
+        <div
+          className={`container relative z-10 flex h-full items-center px-5 ${
+            heroInteractive ? "" : "pointer-events-none"
+          }`}
+        >
           <motion.div
             style={{ opacity: contentOpacity, y: contentY }}
-            className="max-w-4xl"
+            className={`max-w-4xl ${heroInteractive ? "" : "pointer-events-none"}`}
           >
             <h1 className="text-7xl leading-[1.02] font-semibold text-balance text-white md:text-8xl xl:text-[7.35rem]">
               Smarter systems.

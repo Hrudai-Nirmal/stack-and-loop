@@ -4,34 +4,13 @@ import { AIBeamVisual } from "@/components/ai-beam-visual";
 import { CTASection } from "@/components/cta-section";
 import { LandingHero } from "@/components/landing-hero";
 import { ProcessTimeline } from "@/components/process-timeline";
-import { ServicePreview } from "@/components/service-preview";
 import { WorkflowMini } from "@/components/workflow-mini";
-import { examples, services } from "@/lib/content";
+import { examples } from "@/lib/content";
 
 export default function Home() {
   return (
     <div className="page-shell">
       <LandingHero />
-
-      <section className="container -mt-12 py-24 md:-mt-16 md:py-32">
-        <div className="max-w-4xl">
-          <p className="font-mono text-sm uppercase text-white/55">
-            Services
-          </p>
-          <h2 className="mt-5 text-5xl font-semibold leading-tight text-white md:text-6xl">
-            End-to-end workflow automation.
-          </h2>
-          <p className="mt-6 max-w-3xl text-xl leading-9 text-[var(--muted)] md:text-2xl md:leading-10">
-            From the first workflow map to the last handoff detail, the work is
-            designed to make your day feel lighter, not more technical.
-          </p>
-        </div>
-        <div className="mt-16 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-          {services.map((service) => (
-            <ServicePreview key={service.title} service={service} />
-          ))}
-        </div>
-      </section>
 
       <section className="border-y hairline bg-white/[0.025]">
         <div className="container grid gap-12 px-5 py-24 md:py-32">
