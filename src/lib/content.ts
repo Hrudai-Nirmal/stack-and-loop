@@ -1,3 +1,22 @@
+export type ServiceVisualKey = "audit" | "ai" | "integrations" | "maintenance";
+export type ProcessVisualKey = "map" | "design" | "build" | "insights";
+
+type Service = {
+  visualKey: ServiceVisualKey;
+  title: string;
+  summary: string;
+  detail: string;
+};
+
+type ProcessStep = {
+  number: string;
+  visualKey: ProcessVisualKey;
+  title: string;
+  summary: string;
+  client: string;
+  deliverable: string;
+};
+
 export const navItems = [
   { label: "Home", href: "/" },
   { label: "Services", href: "/services" },
@@ -6,8 +25,9 @@ export const navItems = [
   { label: "Contact", href: "/contact" },
 ];
 
-export const services = [
+export const services: Service[] = [
   {
+    visualKey: "audit",
     title: "Workflow audit",
     summary:
       "Map the repetitive work, handoffs, tools, and exceptions that slow the team down.",
@@ -15,6 +35,7 @@ export const services = [
       "A focused review of current tools, recurring tasks, intake points, and decision paths so the right automation opportunities become obvious.",
   },
   {
+    visualKey: "ai",
     title: "AI-assisted operations",
     summary:
       "Use AI where it helps: triage, drafting, research, routing, summaries, and structured output.",
@@ -22,6 +43,7 @@ export const services = [
       "Design practical AI steps with human review points, clear prompts, and predictable outputs instead of fragile one-off experiments.",
   },
   {
+    visualKey: "integrations",
     title: "Tool integrations",
     summary:
       "Connect the apps you already use into one cleaner flow with fewer manual transfers.",
@@ -29,6 +51,7 @@ export const services = [
       "Bridge forms, spreadsheets, CRMs, docs, email, Slack, project tools, and databases into lightweight operational systems.",
   },
   {
+    visualKey: "maintenance",
     title: "Automation maintenance",
     summary:
       "Keep the system understandable, documented, and easy to improve as your work changes.",
@@ -37,9 +60,10 @@ export const services = [
   },
 ];
 
-export const processSteps = [
+export const processSteps: ProcessStep[] = [
   {
     number: "01",
+    visualKey: "map",
     title: "Map the work",
     summary:
       "Identify the repeated tasks, inputs, decisions, tools, and points where people lose time or context.",
@@ -49,6 +73,7 @@ export const processSteps = [
   },
   {
     number: "02",
+    visualKey: "design",
     title: "Design the system",
     summary:
       "Shape the workflow into a simple loop with inputs, checks, AI assistance, and human review where it matters.",
@@ -59,6 +84,7 @@ export const processSteps = [
   },
   {
     number: "03",
+    visualKey: "build",
     title: "Build the loop",
     summary:
       "Implement the automation, connect tools, write the prompts, and make the workflow usable day to day.",
@@ -69,13 +95,14 @@ export const processSteps = [
   },
   {
     number: "04",
+    visualKey: "insights",
     title: "Improve with feedback",
     summary:
-      "Watch how the system behaves in real use, refine the rough edges, and make the next improvement obvious.",
+      "Watch how the system behaves in real use, surface automation insights, and make the next improvement obvious.",
     client:
       "Notes from the first users, edge cases, and any places where the system still feels heavy.",
     deliverable:
-      "A cleaner v1, a maintenance path, and a short list of high-leverage next automations.",
+      "A cleaner v1, dashboard visibility, automation insights, and a short list of high-leverage next improvements.",
   },
 ];
 

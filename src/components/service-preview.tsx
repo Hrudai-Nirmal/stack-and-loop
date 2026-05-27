@@ -1,7 +1,10 @@
 import { ArrowRight } from "lucide-react";
+import { ServiceVisual } from "@/components/service-visual";
+import type { ServiceVisualKey } from "@/lib/content";
 
 type ServicePreviewProps = {
   service: {
+    visualKey: ServiceVisualKey;
     title: string;
     summary: string;
     detail: string;
@@ -10,8 +13,9 @@ type ServicePreviewProps = {
 
 export function ServicePreview({ service }: ServicePreviewProps) {
   return (
-    <article className="group rounded-lg border hairline bg-white/[0.03] p-6 transition hover:border-white/24 hover:bg-white/[0.045]">
-      <div className="mb-10 flex items-center justify-between text-[var(--accent-2)]">
+    <article className="group rounded-lg border hairline bg-white/[0.03] p-4 transition hover:border-white/24 hover:bg-white/[0.045]">
+      <ServiceVisual variant={service.visualKey} />
+      <div className="mb-7 mt-6 flex items-center justify-between text-[var(--accent-2)]">
         <span className="h-px w-12 bg-current opacity-65" />
         <ArrowRight
           size={18}

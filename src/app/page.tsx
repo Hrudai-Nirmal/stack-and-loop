@@ -2,9 +2,10 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { CTASection } from "@/components/cta-section";
 import { LoopVisual } from "@/components/loop-visual";
+import { ProcessTimeline } from "@/components/process-timeline";
 import { ServicePreview } from "@/components/service-preview";
 import { WorkflowMini } from "@/components/workflow-mini";
-import { examples, processSteps, services } from "@/lib/content";
+import { examples, services } from "@/lib/content";
 
 export default function Home() {
   return (
@@ -74,7 +75,7 @@ export default function Home() {
       </section>
 
       <section className="border-y hairline bg-white/[0.025]">
-        <div className="container grid gap-12 px-5 py-24 md:grid-cols-[0.9fr_1.1fr] md:py-32">
+        <div className="container grid gap-12 px-5 py-24 md:py-32">
           <div>
             <p className="font-mono text-sm uppercase text-[var(--accent-2)]">
               Process
@@ -87,26 +88,7 @@ export default function Home() {
               it, and improve it with feedback from the people using it.
             </p>
           </div>
-          <div className="grid gap-4">
-            {processSteps.map((step) => (
-              <div
-                key={step.title}
-                className="grid gap-5 rounded-lg border hairline bg-white/[0.035] p-6 md:grid-cols-[4rem_1fr]"
-              >
-                <div className="font-mono text-sm text-[var(--accent-2)]">
-                  {step.number}
-                </div>
-                <div>
-                  <h3 className="text-xl font-medium text-white">
-                    {step.title}
-                  </h3>
-                  <p className="mt-2 leading-7 text-[var(--muted)]">
-                    {step.summary}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+          <ProcessTimeline compact />
         </div>
       </section>
 

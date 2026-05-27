@@ -152,6 +152,15 @@ body::after {
   animation: pulse-dot 2.6s ease-in-out infinite;
 }
 
+.reduce-motion-only {
+  display: none;
+}
+
+.service-sketch-line {
+  stroke-dasharray: 1 10;
+  animation: trace 20s linear infinite;
+}
+
 @keyframes reveal {
   from {
     opacity: 0;
@@ -189,6 +198,14 @@ body::after {
     animation-iteration-count: 1 !important;
     scroll-behavior: auto !important;
     transition-duration: 0.001ms !important;
+  }
+
+  .motion-only {
+    display: none;
+  }
+
+  .reduce-motion-only {
+    display: block;
   }
 }
 

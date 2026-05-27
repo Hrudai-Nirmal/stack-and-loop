@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { CTASection } from "@/components/cta-section";
 import { PageHero } from "@/components/page-hero";
+import { ServiceVisual } from "@/components/service-visual";
 import { WorkflowDiagram } from "@/components/workflow-diagram";
 import { services } from "@/lib/content";
 
@@ -50,7 +51,8 @@ export default function ServicesPage() {
               key={service.title}
               className="rounded-lg border hairline bg-white/[0.03] p-7"
             >
-              <div className="mb-10 h-px w-16 bg-[var(--accent-2)]/70" />
+              <ServiceVisual variant={service.visualKey} />
+              <div className="mb-10 mt-7 h-px w-16 bg-[var(--accent-2)]/70" />
               <h2 className="text-2xl font-medium text-white">
                 {service.title}
               </h2>
