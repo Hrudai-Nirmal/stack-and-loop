@@ -1,6 +1,6 @@
 "use client";
 
-import type { ReactNode } from "react";
+import type { ReactNode, RefObject } from "react";
 import { HeroParallax } from "@/components/ui/hero-parallax";
 
 const panels = [
@@ -38,8 +38,12 @@ const panels = [
   },
 ];
 
-export function HeroWorkflowParallax() {
-  return <HeroParallax products={panels} />;
+export function HeroWorkflowParallax({
+  scrollTargetRef,
+}: {
+  scrollTargetRef: RefObject<HTMLElement | null>;
+}) {
+  return <HeroParallax products={panels} scrollTargetRef={scrollTargetRef} />;
 }
 
 function PanelFrame({ children }: { children: ReactNode }) {
