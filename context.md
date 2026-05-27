@@ -8,6 +8,7 @@ Stack and Loop is a solo AI workflow automation consultancy for founders, operat
 - Launch routes: Home, Services, Process, Examples, Contact.
 - Use a kinetic minimal design inspired by Linear but distinct: deep graphite background, crisp typography, subtle loop motif, restrained accent, low cognitive load, and precise motion.
 - Visual upgrade direction: animated workflow loop with a moving glowing pointer, diagram-first service cards, and a process flow that includes automation insights/dashboard visibility in Step 4.
+- Process visual refinement: Step 1 uses interconnected task boxes, Step 2 uses a diagonal 3D agent surface, Step 3 uses a simple loop animation, and Step 4 uses an insights/metrics dashboard.
 - Copy voice: clear, calm, confident, human, and low-jargon.
 - Brand: refined Stack and Loop wordmark plus a subtle loop motif.
 - GitHub repository: `https://github.com/Hrudai-Nirmal/stack-and-loop.git`.

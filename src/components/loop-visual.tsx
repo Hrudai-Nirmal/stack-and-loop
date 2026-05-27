@@ -48,34 +48,7 @@ export function LoopVisual() {
         <path
           d={loopPath}
           fill="none"
-          stroke="rgba(255,255,255,0.08)"
-          strokeWidth="24"
-        />
-        <path
-          d={loopPath}
-          fill="none"
-          stroke="rgba(255,255,255,0.18)"
-          strokeWidth="1.2"
-        />
-        <path
-          d="M112 282C183 148 291 147 379 276C467 405 577 408 648 282"
-          fill="none"
-          stroke="rgba(255,255,255,0.14)"
-          strokeWidth="1"
-        />
-        <path
-          d="M124 282C195 402 288 390 379 276C470 162 566 150 636 282"
-          fill="none"
-          stroke="rgba(255,255,255,0.12)"
-          strokeWidth="1"
-        />
-        <path
-          className="trace-line"
-          d={loopPath}
-          fill="none"
-          markerEnd="url(#arrowTip)"
-          stroke="rgba(255,255,255,0.24)"
-          strokeLinecap="round"
+          stroke="rgba(255,255,255,0.16)"
           strokeWidth="1.25"
         />
         <path
@@ -88,11 +61,6 @@ export function LoopVisual() {
           strokeWidth="2.25"
           filter="url(#softGlow)"
         />
-
-        <path d="M230 206L379 276L528 205" fill="none" stroke="rgba(255,255,255,0.12)" />
-        <path d="M230 350L379 276L528 350" fill="none" stroke="rgba(255,255,255,0.12)" />
-        <path d="M379 276V158" fill="none" stroke="rgba(255,255,255,0.08)" />
-        <path d="M379 276V402" fill="none" stroke="rgba(255,255,255,0.08)" />
 
         <circle cx="379" cy="276" r="6" fill="#f7f8ff" />
         <circle
