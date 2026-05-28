@@ -16,11 +16,11 @@ export function AIBeamVisual() {
 
   const beamProps = {
     containerRef,
-    pathColor: "rgba(255,255,255,0.2)",
+    pathColor: "var(--line-strong)",
     pathOpacity: 0.22,
     pathWidth: 1.4,
-    gradientStartColor: "#6bb7c5",
-    gradientStopColor: "#1f7a8c",
+    gradientStartColor: "var(--accent-2)",
+    gradientStopColor: "var(--accent)",
     duration: shouldReduceMotion ? 0.001 : 4.8,
     repeat: shouldReduceMotion ? 0 : Infinity,
   };

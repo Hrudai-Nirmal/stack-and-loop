@@ -50,7 +50,7 @@ export function LandingHero() {
         <HeroWorkflowParallax scrollTargetRef={sectionRef} />
         <motion.div
           style={{ opacity: overlayOpacity }}
-          className="pointer-events-none absolute inset-y-0 left-0 z-[5] w-[78vw] bg-[linear-gradient(90deg,var(--background)_0%,rgba(5,5,5,0.98)_52%,rgba(5,5,5,0.78)_74%,transparent_100%)]"
+          className="hero-copy-wash pointer-events-none absolute inset-y-0 left-0 z-[5] w-[78vw]"
         />
         <div
           className={`container relative z-10 flex h-full items-center px-5 ${

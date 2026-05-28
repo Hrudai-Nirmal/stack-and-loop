@@ -35,6 +35,17 @@ export const metadata: Metadata = {
   },
 };
 
+const themeScript = `
+try {
+  const stored = window.localStorage.getItem("stack-loop-theme");
+  const theme = stored === "light" || stored === "dark"
+    ? stored
+    : window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+  document.documentElement.classList.toggle("dark", theme === "dark");
+  document.documentElement.dataset.theme = theme;
+} catch (_) {}
+`;
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -44,8 +55,12 @@ export default function RootLayout({
     <html
       lang="en"
       data-scroll-behavior="smooth"
+      suppressHydrationWarning
       className={`${geistSans.variable} ${geistMono.variable} h-full scroll-smooth antialiased`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+      </head>
       <body className="min-h-full">
         <Header />
         <main>{children}</main>

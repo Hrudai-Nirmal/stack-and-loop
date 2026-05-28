@@ -5,6 +5,7 @@ import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { BrandMark } from "@/components/brand-mark";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { navItems } from "@/lib/content";
 
 export function Header() {
@@ -12,9 +13,12 @@ export function Header() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b hairline bg-[rgba(5,5,5,0.82)] px-5 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b hairline bg-[color-mix(in_srgb,var(--background)_88%,transparent)] px-5 backdrop-blur-xl">
       <div className="container flex h-16 items-center justify-between">
-        <BrandMark />
+        <div className="flex items-center gap-3">
+          <BrandMark />
+          <ThemeToggle />
+        </div>
         <div className="hidden items-center gap-8 md:flex">
           <nav aria-label="Primary navigation" className="flex items-center gap-8">
             {navItems.map((item) => {
@@ -56,10 +60,13 @@ export function Header() {
       {isOpen ? (
         <div className="fixed inset-0 z-50 bg-[var(--background)] px-5 py-5 md:hidden">
           <div className="flex items-center justify-between">
-            <BrandMark />
+            <div className="flex items-center gap-3">
+              <BrandMark />
+              <ThemeToggle />
+            </div>
             <button
               type="button"
-            className="inline-grid size-10 place-items-center rounded-lg border hairline text-white"
+              className="inline-grid size-10 place-items-center rounded-lg border hairline text-white"
               aria-label="Close navigation"
               onClick={() => setIsOpen(false)}
             >
