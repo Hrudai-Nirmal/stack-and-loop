@@ -64,7 +64,7 @@ export function ContactForm() {
 
   return (
     <form onSubmit={onSubmit} className="surface rounded-lg p-5 md:p-8">
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-5 md:grid-cols-2 [&>div]:mt-0">
         <Field label="Name" htmlFor="name" required>
           <input
             id="name"
@@ -130,7 +130,7 @@ export function ContactForm() {
         />
       </Field>
 
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-5 md:grid-cols-2 [&>div]:mt-0">
         <Field label="Timeline" htmlFor="timeline">
           <select
             id="timeline"
