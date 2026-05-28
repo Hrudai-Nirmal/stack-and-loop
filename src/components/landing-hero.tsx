@@ -74,14 +74,14 @@ export function LandingHero() {
             <div className="mt-10 flex flex-col gap-4 sm:flex-row">
               <Link
                 href="/contact"
-                className="inline-flex h-16 items-center justify-center gap-4 rounded-lg bg-white px-8 text-lg font-medium text-black transition hover:bg-white/88 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white/70"
+                className="inline-flex h-16 items-center justify-center gap-4 rounded-lg bg-[var(--accent)] px-8 text-lg font-medium text-white transition hover:bg-[var(--accent-2)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-line)]"
               >
                 Send project brief
                 <ArrowRight size={20} aria-hidden />
               </Link>
               <Link
                 href="/process"
-                className="inline-flex h-16 items-center justify-center gap-4 rounded-lg border hairline px-8 text-lg font-medium text-white/90 transition hover:border-white/35 hover:bg-white/[0.04] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white/70"
+                className="inline-flex h-16 items-center justify-center gap-4 rounded-lg border border-[var(--accent-line)] px-8 text-lg font-medium text-white/90 transition hover:bg-[var(--accent-soft)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-line)]"
               >
                 See how it works
                 <ArrowRight size={20} aria-hidden />

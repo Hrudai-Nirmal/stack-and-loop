@@ -14,7 +14,7 @@ export function ProcessTimeline({ compact = false }: { compact?: boolean }) {
             <div className="relative z-10">
               <ProcessVisual variant={step.visualKey} />
               <div className="mt-6 flex items-start gap-4">
-                <div className="grid size-11 shrink-0 place-items-center rounded-full border border-white/24 bg-[var(--panel)] font-mono text-sm text-white/72">
+                <div className="grid size-11 shrink-0 place-items-center rounded-full border border-[var(--accent-line)] bg-[var(--accent-soft)] font-mono text-sm text-[var(--accent-2)]">
                   {step.number}
                 </div>
                 <div>
@@ -46,7 +46,7 @@ export function ProcessTimeline({ compact = false }: { compact?: boolean }) {
             {index < processSteps.length - 1 ? (
               <ArrowRight
                 aria-hidden
-                className="absolute -right-3 top-[5.05rem] z-20 hidden text-white/56 lg:block"
+                className="absolute -right-3 top-[5.05rem] z-20 hidden text-[var(--accent-2)] lg:block"
                 size={22}
               />
             ) : null}
@@ -62,7 +62,7 @@ function ProcessVisual({ variant }: { variant: ProcessVisualKey }) {
     <div className="relative h-48 overflow-hidden rounded-lg border hairline bg-black/18">
       <svg
         viewBox="0 0 320 190"
-        className="absolute inset-0 h-full w-full text-white/58"
+        className="absolute inset-0 h-full w-full text-[var(--accent-2)]"
         aria-hidden
       >
         {variant === "map" ? <MapVisual /> : null}
@@ -90,7 +90,7 @@ function MapVisual() {
       <TaskBox x={86} y={105} width={76} labelLines={["Decision"]} />
       <TaskBox x={169} y={101} width={72} labelLines={["Action"]} active />
       <TaskBox x={203} y={131} width={72} labelLines={["Done"]} />
-      <circle cx="158" cy="54" r="4" fill="#f7f8ff" />
+      <circle cx="158" cy="54" r="4" fill="var(--accent-2)" />
       <circle cx="190" cy="118" r="11" fill="rgba(255,255,255,0.1)" />
     </>
   );
@@ -132,7 +132,7 @@ function BuildVisual() {
         strokeWidth="2.2"
       />
       <circle cx="72" cy="96" r="14" fill="rgba(255,255,255,0.045)" stroke="rgba(255,255,255,0.26)" />
-      <circle cx="160" cy="96" r="6" fill="#f7f8ff" />
+      <circle cx="160" cy="96" r="6" fill="var(--accent-2)" />
       <circle cx="160" cy="96" r="16" fill="rgba(255,255,255,0.1)" />
       <circle cx="248" cy="96" r="14" fill="rgba(255,255,255,0.045)" stroke="rgba(255,255,255,0.26)" />
     </>
@@ -148,10 +148,10 @@ function InsightsVisual() {
       <path d="M62 83H88M62 102H80M62 121H90M62 140H76" stroke="rgba(255,255,255,0.28)" strokeLinecap="round" />
       <rect x="124" y="80" width="48" height="28" rx="5" fill="rgba(255,255,255,0.08)" stroke="currentColor" />
       <rect x="186" y="80" width="58" height="28" rx="5" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" />
-      <path d="M134 95H162M197 95H232" stroke="#f7f8ff" strokeLinecap="round" />
+      <path d="M134 95H162M197 95H232" stroke="var(--accent-2)" strokeLinecap="round" />
       <path d="M126 136C142 119 158 124 174 129C197 137 204 105 222 101C237 98 246 112 256 106" fill="none" stroke="currentColor" strokeLinecap="round" strokeWidth="1.8" />
       <path d="M124 146H170M186 146H244" stroke="rgba(255,255,255,0.15)" strokeLinecap="round" />
-      <circle cx="222" cy="101" r="5" fill="#f7f8ff" />
+      <circle cx="222" cy="101" r="5" fill="var(--accent-2)" />
       <circle cx="222" cy="101" r="13" fill="rgba(255,255,255,0.1)" />
     </>
   );
@@ -227,7 +227,7 @@ function IsoBlock({
       <path
         d={chip}
         fill={active ? "rgba(255,255,255,0.16)" : "rgba(255,255,255,0.09)"}
-        stroke={active ? "#f7f8ff" : "rgba(247,248,255,0.62)"}
+        stroke={active ? "var(--accent-2)" : "rgba(247,248,255,0.62)"}
       />
       <path
         d={`M${x + 18} ${y + 7}L${x + 10} ${y + 11}M${x + 46} ${y + 7}L${x + 54} ${y + 11}M${x + 32} ${y - 8}V${y - 14}M${x + 32} ${y + 10}V${y + 15}`}

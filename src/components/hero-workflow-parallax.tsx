@@ -75,7 +75,7 @@ function PanelFrame({ children }: { children: ReactNode }) {
     <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.015))]">
       <svg
         viewBox="0 0 320 176"
-        className="absolute inset-x-0 top-0 h-[58%] w-full text-white/62"
+        className="absolute inset-x-0 top-0 h-[58%] w-full text-[var(--accent-2)]"
         aria-hidden
       >
         {children}
@@ -90,7 +90,7 @@ function IntakePanel() {
       <rect x="42" y="40" width="236" height="96" rx="9" fill="rgba(0,0,0,0.18)" stroke="rgba(255,255,255,0.2)" />
       <path d="M64 64H144M64 83H124M64 102H158" stroke="rgba(255,255,255,0.52)" strokeLinecap="round" />
       <rect x="188" y="68" width="54" height="36" rx="7" fill="rgba(255,255,255,0.08)" stroke="currentColor" />
-      <path d="M200 87H230" stroke="#f5f5f5" strokeLinecap="round" />
+      <path d="M200 87H230" stroke="var(--accent-2)" strokeLinecap="round" />
     </PanelFrame>
   );
 }
@@ -102,7 +102,7 @@ function TriagePanel() {
       <circle cx="90" cy="92" r="26" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.25)" />
       <circle cx="160" cy="92" r="30" fill="rgba(255,255,255,0.08)" stroke="currentColor" />
       <circle cx="230" cy="92" r="26" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.25)" />
-      <path d="M147 92L157 102L176 78" stroke="#f5f5f5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M147 92L157 102L176 78" stroke="var(--accent-2)" strokeLinecap="round" strokeLinejoin="round" />
     </PanelFrame>
   );
 }
@@ -131,7 +131,7 @@ function ReviewPanel() {
       <rect x="58" y="48" width="204" height="82" rx="9" fill="rgba(0,0,0,0.18)" stroke="rgba(255,255,255,0.22)" />
       <path d="M78 70H142M78 88H126M78 106H152" stroke="rgba(255,255,255,0.48)" strokeLinecap="round" />
       <circle cx="215" cy="88" r="24" fill="rgba(255,255,255,0.06)" stroke="currentColor" />
-      <path d="M205 88L213 96L229 76" stroke="#f5f5f5" strokeLinecap="round" strokeLinejoin="round" />
+      <path d="M205 88L213 96L229 76" stroke="var(--accent-2)" strokeLinecap="round" strokeLinejoin="round" />
     </PanelFrame>
   );
 }
@@ -177,7 +177,7 @@ function DeliveryPanel() {
       <path d="M82 64L160 100L238 64" fill="none" stroke="currentColor" strokeLinecap="round" />
       <path d="M82 132L136 94M238 132L184 94" fill="none" stroke="rgba(255,255,255,0.18)" strokeLinecap="round" />
       <path d="M108 148H212" stroke="rgba(255,255,255,0.34)" strokeLinecap="round" />
-      <circle cx="160" cy="100" r="5" fill="#f5f5f5" />
+      <circle cx="160" cy="100" r="5" fill="var(--accent-2)" />
     </PanelFrame>
   );
 }

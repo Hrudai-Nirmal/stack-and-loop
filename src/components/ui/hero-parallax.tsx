@@ -169,10 +169,10 @@ function ProductCard({
       onClick={onActivate}
       onFocus={onActivate}
       whileHover={shouldReduceMotion ? undefined : { y: -8 }}
-      className={`pointer-events-auto relative h-40 min-w-0 overflow-hidden rounded-lg border bg-white/[0.032] text-left transition focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white/70 sm:h-44 md:h-52 ${
+      className={`pointer-events-auto relative h-40 min-w-0 overflow-hidden rounded-lg border bg-white/[0.032] text-left transition focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-line)] sm:h-44 md:h-52 ${
         active
-          ? "border-white/55 bg-white/[0.07]"
-          : "hairline hover:border-white/28 hover:bg-white/[0.052]"
+          ? "border-[var(--accent-line)] bg-[var(--accent-soft)]"
+          : "hairline hover:border-[var(--accent-line)] hover:bg-white/[0.052]"
       }`}
       aria-pressed={active}
     >

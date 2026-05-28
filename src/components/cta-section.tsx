@@ -20,7 +20,7 @@ export function CTASection() {
           </div>
           <Link
             href="/contact"
-            className="inline-flex h-14 items-center justify-center gap-3 rounded-lg bg-white px-6 text-base font-medium text-black transition hover:bg-white/88"
+            className="inline-flex h-14 items-center justify-center gap-3 rounded-lg bg-[var(--accent)] px-6 text-base font-medium text-white transition hover:bg-[var(--accent-2)]"
           >
             Send project brief
             <ArrowRight size={18} aria-hidden />

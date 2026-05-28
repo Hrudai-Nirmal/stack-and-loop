@@ -19,8 +19,8 @@ export function AIBeamVisual() {
     pathColor: "rgba(255,255,255,0.2)",
     pathOpacity: 0.22,
     pathWidth: 1.4,
-    gradientStartColor: "#f5f5f5",
-    gradientStopColor: "#a1a1aa",
+    gradientStartColor: "#6bb7c5",
+    gradientStopColor: "#1f7a8c",
     duration: shouldReduceMotion ? 0.001 : 4.8,
     repeat: shouldReduceMotion ? 0 : Infinity,
   };
@@ -85,7 +85,7 @@ const BeamNode = React.forwardRef<
         prominent ? "min-w-44 justify-center py-5 text-white" : "w-full max-w-56"
       }`}
     >
-      <span className="grid size-9 place-items-center rounded-lg border border-white/14 bg-white/[0.045] text-white/78">
+      <span className="grid size-9 place-items-center rounded-lg border border-[var(--accent-line)] bg-[var(--accent-soft)] text-[var(--accent-2)]">
         {icon}
       </span>
       <span className="text-sm font-medium">{label}</span>

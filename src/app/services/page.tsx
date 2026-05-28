@@ -52,7 +52,7 @@ export default function ServicesPage() {
               className="rounded-lg border hairline bg-white/[0.03] p-7"
             >
               <ServiceVisual variant={service.visualKey} />
-              <div className="mb-10 mt-7 h-px w-16 bg-white/45" />
+              <div className="mb-10 mt-7 h-px w-16 bg-[var(--accent)]" />
               <h2 className="text-2xl font-medium text-white">
                 {service.title}
               </h2>

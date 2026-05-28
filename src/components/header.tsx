@@ -27,7 +27,7 @@ export function Header() {
                 >
                   {item.label}
                   <span
-                    className={`absolute inset-x-0 -bottom-1 h-px origin-center bg-white transition ${
+                    className={`absolute inset-x-0 -bottom-1 h-px origin-center bg-[var(--accent)] transition ${
                       active ? "scale-x-100 opacity-100" : "scale-x-0 opacity-70 group-hover:scale-x-100"
                     }`}
                   />
@@ -37,7 +37,7 @@ export function Header() {
           </nav>
           <Link
             href="/contact"
-            className="hidden h-10 items-center rounded-lg border hairline px-5 text-sm font-medium text-white/82 transition hover:border-white/38 hover:bg-white/[0.05] lg:inline-flex"
+            className="hidden h-10 items-center rounded-lg border border-[var(--accent-line)] px-5 text-sm font-medium text-white/88 transition hover:bg-[var(--accent-soft)] lg:inline-flex"
           >
             Send brief
           </Link>

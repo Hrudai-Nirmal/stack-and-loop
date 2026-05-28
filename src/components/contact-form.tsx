@@ -194,7 +194,7 @@ export function ContactForm() {
         <button
           type="submit"
           disabled={state === "submitting"}
-          className="inline-flex h-14 items-center justify-center gap-3 rounded-lg bg-white px-6 text-base font-medium text-black transition hover:bg-white/88 disabled:cursor-not-allowed disabled:opacity-60"
+          className="inline-flex h-14 items-center justify-center gap-3 rounded-lg bg-[var(--accent)] px-6 text-base font-medium text-white transition hover:bg-[var(--accent-2)] disabled:cursor-not-allowed disabled:opacity-60"
         >
           {state === "submitting" ? (
             <Loader2 className="animate-spin" size={18} aria-hidden />
@@ -243,7 +243,7 @@ function Field({
       >
         {label}
         {required ? (
-          <span aria-hidden="true" className="text-white/78">
+          <span aria-hidden="true" className="text-[var(--accent-2)]">
             {" "}
             *
           </span>
