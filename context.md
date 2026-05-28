@@ -6,11 +6,11 @@ Stack and Loop is a solo AI workflow automation consultancy for founders, operat
 ## Current Plan
 - Built a fresh Next.js App Router site with TypeScript, Tailwind, ESLint, npm, and Vercel deployment in mind.
 - Launch routes: Home, Services, Process, Examples, Contact.
-- Use a premium theme system inspired by Linear but distinct: crisp typography, subtle loop motif, low cognitive load, restrained motion, a calm off-white/olive/sage light mode, and a black/white/electric-cyan dark mode.
+- Use a premium theme system inspired by Linear but distinct: crisp typography, subtle loop motif, low cognitive load, restrained motion, a calm off-white/olive/sage light mode, and a black/white/teal-cyan dark mode.
 - Current visual direction: monochrome landing hero parallax that settles into an interactive services grid, diagram-first service visuals, and a process flow that includes automation insights/dashboard visibility in Step 4.
 - Process visual refinement: Step 1 uses interconnected task boxes, Step 2 uses a diagonal 3D agent surface, Step 3 uses a simple loop animation, and Step 4 uses an insights/metrics dashboard.
 - Header keeps logo left with nav and `Send brief` grouped right at 64px height; homepage hides the footer; top-level section/page headings and descriptions are left-aligned and larger.
-- Theme direction: add a light/dark mode switch beside the header logo. Light mode uses `#eff1ed`, `#373d20`, `#717744`, `#bcbd8b`, and `#766153`; dark mode uses black, white, and electric cyan accents.
+- Theme direction: add a light/dark mode switch beside the header logo. Light mode uses `#eff1ed`, `#373d20`, `#717744`, `#bcbd8b`, and `#766153`; dark mode uses black, white, `#264653`, and `#72efdd` accents.
 - Landing reform direction: remove the large landing-page loop visual, use an Aceternity-style hero parallax with custom monochrome workflow panels, avoid background spotlight effects, and use Magic UI Animated Beam in the homepage Process section to show AI coordinating multiple task streams for a human.
 - Hero parallax direction: the landing parallax should be full-viewport rather than boxed, and should settle from angled 3D rows into a flatter 2D workflow grid as the user scrolls toward Services.
 - Homepage services reform: the old separate Services section is removed from `/`; the hero parallax itself now becomes the services surface by flattening into an interactive fixed 2D workflow grid with selectable panels and a selected-detail readout.
