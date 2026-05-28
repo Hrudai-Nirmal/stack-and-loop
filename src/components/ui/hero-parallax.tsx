@@ -84,7 +84,7 @@ export function HeroParallax({
       className="absolute inset-0 overflow-hidden [perspective:1200px]"
       aria-label="Workflow automation preview"
     >
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_68%_44%,rgba(255,255,255,0.08),transparent_36%),linear-gradient(90deg,var(--background)_0%,transparent_28%,transparent_76%,var(--background)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(90deg,var(--background)_0%,transparent_28%,transparent_76%,var(--background)_100%)]" />
       <motion.div
         style={{ opacity: serviceOpacity, y: serviceY }}
         className="pointer-events-none container absolute inset-x-0 top-[6.5rem] z-[4] px-5"
@@ -94,12 +94,11 @@ export function HeroParallax({
             <p className="font-mono text-sm uppercase text-white/55">
               Services
             </p>
-            <h2 className="mt-4 max-w-4xl text-5xl font-semibold leading-tight text-white md:text-6xl">
+            <h2 className="mt-4 max-w-4xl text-[2.55rem] font-semibold leading-tight text-white md:text-[3.2rem]">
               End-to-end workflow automation.
             </h2>
-            <p className="mt-5 max-w-3xl text-xl leading-9 text-[var(--muted)] md:text-2xl md:leading-10">
-              From workflow map to handoff, the system settles into one
-              interactive grid you can inspect.
+            <p className="mt-4 max-w-2xl text-[1.06rem] leading-8 text-[var(--muted)] md:text-[1.28rem] md:leading-9">
+              Select a panel to inspect the workflow.
             </p>
           </div>
           <motion.div
@@ -128,7 +127,7 @@ export function HeroParallax({
           y: translateY,
           opacity,
         }}
-        className="absolute left-1/2 top-[52%] flex w-[92vw] -translate-x-1/2 -translate-y-1/2 flex-col gap-4 will-change-transform sm:w-[52rem] md:top-[55%] md:w-[min(92vw,78rem)] md:gap-5"
+        className="absolute left-1/2 top-[54%] flex w-[92vw] -translate-x-1/2 -translate-y-1/2 flex-col gap-4 will-change-transform sm:w-[52rem] md:top-[58%] md:w-[min(92vw,78rem)] md:gap-5"
       >
         {rows.map((row, rowIndex) => (
           <motion.div
@@ -170,7 +169,7 @@ function ProductCard({
       onClick={onActivate}
       onFocus={onActivate}
       whileHover={shouldReduceMotion ? undefined : { y: -8 }}
-      className={`pointer-events-auto relative h-32 min-w-0 overflow-hidden rounded-lg border bg-white/[0.032] text-left transition focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white/70 sm:h-36 md:h-44 ${
+      className={`pointer-events-auto relative h-40 min-w-0 overflow-hidden rounded-lg border bg-white/[0.032] text-left transition focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white/70 sm:h-44 md:h-52 ${
         active
           ? "border-white/55 bg-white/[0.07]"
           : "hairline hover:border-white/28 hover:bg-white/[0.052]"

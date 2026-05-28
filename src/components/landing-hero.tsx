@@ -12,7 +12,6 @@ import {
 } from "motion/react";
 import React from "react";
 import { HeroWorkflowParallax } from "@/components/hero-workflow-parallax";
-import { Spotlight } from "@/components/ui/spotlight-new";
 
 export function LandingHero() {
   const sectionRef = React.useRef<HTMLElement>(null);
@@ -48,17 +47,6 @@ export function LandingHero() {
       className="relative left-1/2 -mt-[6.25rem] min-h-[315vh] w-screen -translate-x-1/2 overflow-clip border-b hairline md:-mt-[7.5rem]"
     >
       <div className="sticky top-0 h-screen overflow-hidden">
-        <Spotlight
-          gradientFirst="radial-gradient(68% 68% at 50% 32%, rgba(255,255,255,0.20) 0%, rgba(255,255,255,0.08) 38%, transparent 74%)"
-          gradientSecond="radial-gradient(48% 48% at 50% 50%, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.045) 62%, transparent 100%)"
-          gradientThird="radial-gradient(46% 46% at 50% 50%, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.025) 72%, transparent 100%)"
-          translateY={-430}
-          width={760}
-          height={1500}
-          smallWidth={310}
-          duration={10}
-          xOffset={140}
-        />
         <HeroWorkflowParallax scrollTargetRef={sectionRef} />
         <motion.div
           style={{ opacity: overlayOpacity }}
@@ -73,12 +61,12 @@ export function LandingHero() {
             style={{ opacity: contentOpacity, y: contentY }}
             className={`max-w-4xl ${heroInteractive ? "" : "pointer-events-none"}`}
           >
-            <h1 className="text-7xl leading-[1.02] font-semibold text-balance text-white md:text-8xl xl:text-[7.35rem]">
+            <h1 className="text-[3.85rem] leading-[1.02] font-semibold text-balance text-white md:text-[5.1rem] xl:text-[6.25rem]">
               Smarter systems.
               <br />
               Less busywork.
             </h1>
-            <p className="mt-9 max-w-3xl text-2xl leading-10 text-[var(--soft)] md:text-3xl md:leading-[1.42]">
+            <p className="mt-8 max-w-3xl text-[1.3rem] leading-9 text-[var(--soft)] md:text-[1.6rem] md:leading-[1.42]">
               I design AI-assisted workflows that turn repetitive work into
               reliable systems, so you and your team can move faster with fewer
               mistakes.
