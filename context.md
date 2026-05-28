@@ -14,6 +14,7 @@ Stack and Loop is a solo AI workflow automation consultancy for founders, operat
 - Hero parallax direction: the landing parallax should be full-viewport rather than boxed, and should settle from angled 3D rows into a flatter 2D workflow grid as the user scrolls toward Services.
 - Homepage services reform: the old separate Services section is removed from `/`; the hero parallax itself now becomes the services surface by flattening into an interactive fixed 2D workflow grid with selectable panels and a selected-detail readout.
 - Latest landing polish: background spotlight effects are removed, landing/service hero type is reduced by about 15%, the services subheading is shortened to avoid grid overlap, and parallax cards are taller for stronger visual presence.
+- Parallax card polish: workflow SVG diagrams are positioned in the upper visual area of each card so the description band no longer covers the diagrams.
 - Copy voice: clear, calm, confident, human, and low-jargon.
 - Brand: refined Stack and Loop wordmark plus a subtle loop motif.
 - GitHub repository: `https://github.com/Hrudai-Nirmal/stack-and-loop.git`.

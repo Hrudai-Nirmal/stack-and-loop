@@ -73,7 +73,11 @@ export function HeroWorkflowParallax({
 function PanelFrame({ children }: { children: ReactNode }) {
   return (
     <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.08),rgba(255,255,255,0.015))]">
-      <svg viewBox="0 0 320 176" className="h-full w-full text-white/62" aria-hidden>
+      <svg
+        viewBox="0 0 320 176"
+        className="absolute inset-x-0 top-0 h-[58%] w-full text-white/62"
+        aria-hidden
+      >
         {children}
       </svg>
     </div>
