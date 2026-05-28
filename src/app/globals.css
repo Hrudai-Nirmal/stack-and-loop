@@ -5,47 +5,47 @@
 @custom-variant dark (&:is(.dark *));
 
 :root {
-  --background: #fefae0;
-  --foreground: #283618;
-  --muted: #606c38;
-  --soft: #3c4a22;
-  --panel: #f8f0c9;
-  --panel-2: #efe6bc;
-  --line: rgba(96, 108, 56, 0.28);
-  --line-strong: rgba(40, 54, 24, 0.42);
-  --accent: #606c38;
-  --accent-2: #283618;
-  --accent-soft: rgba(96, 108, 56, 0.16);
-  --accent-line: rgba(96, 108, 56, 0.48);
+  --background: #eff1ed;
+  --foreground: #373d20;
+  --muted: #717744;
+  --soft: #766153;
+  --panel: #eff1ed;
+  --panel-2: #bcbd8b;
+  --line: rgba(113, 119, 68, 0.3);
+  --line-strong: rgba(55, 61, 32, 0.44);
+  --accent: #373d20;
+  --accent-2: #717744;
+  --accent-soft: rgba(113, 119, 68, 0.17);
+  --accent-line: rgba(113, 119, 68, 0.52);
   --success: #2f7d45;
-  --card: #f8f0c9;
-  --card-foreground: #283618;
-  --popover: #f8f0c9;
-  --popover-foreground: #283618;
-  --primary: #606c38;
-  --primary-foreground: #fefae0;
-  --secondary: #efe6bc;
-  --secondary-foreground: #283618;
-  --muted-foreground: #606c38;
-  --accent-foreground: #fefae0;
+  --card: #eff1ed;
+  --card-foreground: #373d20;
+  --popover: #eff1ed;
+  --popover-foreground: #373d20;
+  --primary: #373d20;
+  --primary-foreground: #eff1ed;
+  --secondary: #bcbd8b;
+  --secondary-foreground: #373d20;
+  --muted-foreground: #717744;
+  --accent-foreground: #eff1ed;
   --destructive: oklch(0.577 0.245 27.325);
-  --border: rgba(96, 108, 56, 0.28);
-  --input: rgba(96, 108, 56, 0.24);
-  --ring: rgba(96, 108, 56, 0.58);
+  --border: rgba(113, 119, 68, 0.3);
+  --input: rgba(113, 119, 68, 0.25);
+  --ring: rgba(113, 119, 68, 0.58);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
   --chart-4: oklch(0.371 0 0);
   --chart-5: oklch(0.269 0 0);
   --radius: 0.625rem;
-  --sidebar: #f8f0c9;
-  --sidebar-foreground: #283618;
-  --sidebar-primary: #606c38;
-  --sidebar-primary-foreground: #fefae0;
-  --sidebar-accent: #efe6bc;
-  --sidebar-accent-foreground: #283618;
-  --sidebar-border: rgba(96, 108, 56, 0.28);
-  --sidebar-ring: rgba(96, 108, 56, 0.58);
+  --sidebar: #eff1ed;
+  --sidebar-foreground: #373d20;
+  --sidebar-primary: #373d20;
+  --sidebar-primary-foreground: #eff1ed;
+  --sidebar-accent: #bcbd8b;
+  --sidebar-accent-foreground: #373d20;
+  --sidebar-border: rgba(113, 119, 68, 0.3);
+  --sidebar-ring: rgba(113, 119, 68, 0.58);
 }
 
 @theme inline {
@@ -285,15 +285,15 @@ body::after {
 }
 
 :root:not(.dark) svg [stroke^="rgba(255,255,255"] {
-  stroke: rgba(40, 54, 24, 0.34);
+  stroke: rgba(55, 61, 32, 0.34);
 }
 
 :root:not(.dark) svg [fill^="rgba(255,255,255"] {
-  fill: rgba(96, 108, 56, 0.12);
+  fill: rgba(113, 119, 68, 0.12);
 }
 
 :root:not(.dark) svg [fill^="rgba(0,0,0"] {
-  fill: rgba(40, 54, 24, 0.08);
+  fill: rgba(55, 61, 32, 0.08);
 }
 
 .dark {
