@@ -99,24 +99,12 @@ function MapVisual() {
 function DesignVisual() {
   return (
     <>
-      <IsoBlock x={78} y={105} height={42} active />
-      <IsoBlock x={120} y={81} height={66} />
-      <IsoBlock x={166} y={105} height={42} active />
-      <IsoBlock x={208} y={81} height={42} />
+      <IsoBlock x={72} y={102} height={42} active />
+      <IsoBlock x={118} y={78} height={62} />
+      <IsoBlock x={164} y={102} height={42} active />
+      <IsoBlock x={210} y={78} height={42} />
       <path
-        d="M78 147L110 165L174 165L206 147M120 147L152 165L216 165L248 147M142 135L174 153M188 135L220 153M78 147L162 98M110 165L194 116M206 147L248 123"
-        fill="none"
-        stroke="rgba(255,255,255,0.16)"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-      <path
-        d="M62 138L154 84L260 134L168 178Z"
-        fill="rgba(255,255,255,0.018)"
-        stroke="rgba(255,255,255,0.13)"
-      />
-      <path
-        d="M112 87C145 63 178 70 205 94C222 108 237 107 251 98"
+        d="M106 84C140 61 178 68 205 92C222 106 238 105 252 96"
         fill="none"
         stroke="currentColor"
         strokeLinecap="round"
