@@ -1,6 +1,5 @@
 "use client";
 
-import { Moon, Sun } from "lucide-react";
 import { useState } from "react";
 
 type Theme = "light" | "dark";
@@ -19,27 +18,56 @@ export function ThemeToggle() {
     return document.documentElement.classList.contains("dark") ? "dark" : "light";
   });
 
-  function toggleTheme() {
-    const next = theme === "dark" ? "light" : "dark";
+  function setNextTheme(checked: boolean) {
+    const next = checked ? "dark" : "light";
     setTheme(next);
     applyTheme(next);
     window.localStorage.setItem("stack-loop-theme", next);
   }
 
   return (
-    <button
-      type="button"
-      onClick={toggleTheme}
-      className="inline-grid size-9 place-items-center rounded-lg border border-[var(--accent-line)] bg-[var(--accent-soft)] text-[var(--accent-2)] transition hover:bg-[var(--accent-soft)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-line)]"
+    <label
+      className="theme-switch"
       aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
       suppressHydrationWarning
       title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
     >
-      {theme === "dark" ? (
-        <Sun size={17} aria-hidden />
-      ) : (
-        <Moon size={17} aria-hidden />
-      )}
-    </button>
+      <input
+        type="checkbox"
+        checked={theme === "dark"}
+        onChange={(event) => setNextTheme(event.target.checked)}
+        suppressHydrationWarning
+      />
+      <span className="theme-switch__slider" aria-hidden>
+        <span className="theme-switch__orb">
+          <svg className="theme-switch__moon-dot theme-switch__moon-dot--one" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="50" />
+          </svg>
+          <svg className="theme-switch__moon-dot theme-switch__moon-dot--two" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="50" />
+          </svg>
+          <svg className="theme-switch__moon-dot theme-switch__moon-dot--three" viewBox="0 0 100 100">
+            <circle cx="50" cy="50" r="50" />
+          </svg>
+          <span className="theme-switch__ray theme-switch__ray--one" />
+          <span className="theme-switch__ray theme-switch__ray--two" />
+          <span className="theme-switch__ray theme-switch__ray--three" />
+        </span>
+        <span className="theme-switch__cloud theme-switch__cloud--one" />
+        <span className="theme-switch__cloud theme-switch__cloud--two" />
+        <span className="theme-switch__cloud theme-switch__cloud--three" />
+        <span className="theme-switch__stars">
+          <svg className="theme-switch__star theme-switch__star--one" viewBox="0 0 20 20">
+            <path d="M0 10C10 10 10 10 0 10C10 10 10 10 10 20C10 10 10 10 20 10C10 10 10 10 10 0C10 10 10 10 0 10Z" />
+          </svg>
+          <svg className="theme-switch__star theme-switch__star--two" viewBox="0 0 20 20">
+            <path d="M0 10C10 10 10 10 0 10C10 10 10 10 10 20C10 10 10 10 20 10C10 10 10 10 10 0C10 10 10 10 0 10Z" />
+          </svg>
+          <svg className="theme-switch__star theme-switch__star--three" viewBox="0 0 20 20">
+            <path d="M0 10C10 10 10 10 0 10C10 10 10 10 10 20C10 10 10 10 20 10C10 10 10 10 10 0C10 10 10 10 0 10Z" />
+          </svg>
+        </span>
+      </span>
+    </label>
   );
 }

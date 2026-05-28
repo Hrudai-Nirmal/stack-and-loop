@@ -106,7 +106,7 @@ function DesignVisual() {
       <path
         d="M106 84C140 61 178 68 205 92C222 106 238 105 252 96"
         fill="none"
-        stroke="currentColor"
+        stroke="rgba(255,255,255,0.34)"
         strokeLinecap="round"
         strokeWidth="1.4"
       />
@@ -222,16 +222,16 @@ function IsoBlock({
       <path
         d={top}
         fill={active ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.07)"}
-        stroke={active ? "currentColor" : "rgba(255,255,255,0.24)"}
+        stroke="rgba(255,255,255,0.24)"
       />
       <path
         d={chip}
-        fill={active ? "rgba(255,255,255,0.16)" : "rgba(255,255,255,0.09)"}
-        stroke={active ? "var(--accent-2)" : "rgba(247,248,255,0.62)"}
+        fill="var(--accent-soft)"
+        stroke="var(--accent)"
       />
       <path
         d={`M${x + 18} ${y + 7}L${x + 10} ${y + 11}M${x + 46} ${y + 7}L${x + 54} ${y + 11}M${x + 32} ${y - 8}V${y - 14}M${x + 32} ${y + 10}V${y + 15}`}
-        stroke="rgba(247,248,255,0.5)"
+        stroke="var(--accent)"
         strokeLinecap="round"
       />
     </g>

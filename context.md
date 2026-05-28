@@ -10,7 +10,7 @@ Stack and Loop is a solo AI workflow automation consultancy for founders, operat
 - Current visual direction: monochrome landing hero parallax that settles into an interactive services grid, diagram-first service visuals, and a process flow that includes automation insights/dashboard visibility in Step 4.
 - Process visual refinement: Step 1 uses interconnected task boxes, Step 2 uses a diagonal 3D agent surface, Step 3 uses a simple loop animation, and Step 4 uses an insights/metrics dashboard.
 - Header keeps logo left with nav and `Send brief` grouped right at 64px height; homepage hides the footer; top-level section/page headings and descriptions are left-aligned and larger.
-- Theme direction: add a light/dark mode switch beside the header logo. Light mode uses `#eff1ed`, `#373d20`, `#717744`, `#bcbd8b`, and `#766153`; dark mode uses black, white, `#006d77`, and `#2ec4b6` accents.
+- Theme direction: add a light/dark mode switch on the right side of the header. Light mode uses `#eff1ed`, `#373d20`, `#717744`, `#bcbd8b`, and `#766153`; dark mode uses black, white, `#005f73`, and `#0a9396` accents. The logo and theme switch stay neutral rather than accent-colored.
 - Landing reform direction: remove the large landing-page loop visual, use an Aceternity-style hero parallax with custom monochrome workflow panels, avoid background spotlight effects, and use Magic UI Animated Beam in the homepage Process section to show AI coordinating multiple task streams for a human.
 - Hero parallax direction: the landing parallax should be full-viewport rather than boxed, and should settle from angled 3D rows into a flatter 2D workflow grid as the user scrolls toward Services.
 - Homepage services reform: the old separate Services section is removed from `/`; the hero parallax itself now becomes the services surface by flattening into an interactive fixed 2D workflow grid with selectable panels and a selected-detail readout.
@@ -18,6 +18,7 @@ Stack and Loop is a solo AI workflow automation consultancy for founders, operat
 - Parallax card polish: workflow SVG diagrams are positioned in the upper visual area of each card so the description band no longer covers the diagrams.
 - SVG visual fixes: Process Step 2 isometric agent blocks should sit cleanly on the same base plane, and the client delivery envelope uses a normal, less elongated envelope ratio.
 - Process Step 2 refinement: remove the isometric base/crease plane entirely and center-align the chip-topped module boxes as the focal visual.
+- Process Step 2 accenting: only the processor/chip elements on the tops of the module boxes should use the accent color.
 - Copy voice: clear, calm, confident, human, and low-jargon.
 - Brand: refined Stack and Loop wordmark plus a subtle loop motif.
 - GitHub repository: `https://github.com/Hrudai-Nirmal/stack-and-loop.git`.

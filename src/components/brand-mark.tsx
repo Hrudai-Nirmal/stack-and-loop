@@ -4,11 +4,11 @@ export function BrandMark() {
   return (
     <Link
       href="/"
-      className="group inline-flex items-center gap-3 text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-line)]"
+      className="group inline-flex items-center gap-3 text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--line)]"
       aria-label="Stack and Loop home"
     >
-      <span className="relative grid size-8 place-items-center rounded-lg border border-[var(--accent-line)] bg-[var(--accent-soft)]">
-        <svg viewBox="0 0 32 32" aria-hidden className="size-6 text-[var(--accent-2)]">
+      <span className="relative grid size-8 place-items-center rounded-lg border border-[var(--line)] bg-[color-mix(in_srgb,var(--panel)_72%,transparent)]">
+        <svg viewBox="0 0 32 32" aria-hidden className="size-6 text-[var(--foreground)] opacity-80">
           <path
             d="M6 16c3.4-6 8.5-6 12 0s8.6 6 12 0"
             fill="none"

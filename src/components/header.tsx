@@ -15,10 +15,7 @@ export function Header() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b hairline bg-[color-mix(in_srgb,var(--background)_88%,transparent)] px-5 backdrop-blur-xl">
       <div className="container flex h-16 items-center justify-between">
-        <div className="flex items-center gap-3">
-          <BrandMark />
-          <ThemeToggle />
-        </div>
+        <BrandMark />
         <div className="hidden items-center gap-8 md:flex">
           <nav aria-label="Primary navigation" className="flex items-center gap-8">
             {navItems.map((item) => {
@@ -45,33 +42,37 @@ export function Header() {
           >
             Send brief
           </Link>
+          <ThemeToggle />
         </div>
-        <button
-          type="button"
-          className="inline-grid size-10 place-items-center rounded-lg border hairline text-white md:hidden"
-          aria-label="Open navigation"
-          aria-expanded={isOpen}
-          onClick={() => setIsOpen(true)}
-        >
-          <Menu size={20} aria-hidden />
-        </button>
+        <div className="flex items-center gap-3 md:hidden">
+          <ThemeToggle />
+          <button
+            type="button"
+            className="inline-grid size-10 place-items-center rounded-lg border hairline text-white"
+            aria-label="Open navigation"
+            aria-expanded={isOpen}
+            onClick={() => setIsOpen(true)}
+          >
+            <Menu size={20} aria-hidden />
+          </button>
+        </div>
       </div>
 
       {isOpen ? (
         <div className="fixed inset-0 z-50 bg-[var(--background)] px-5 py-5 md:hidden">
           <div className="flex items-center justify-between">
+            <BrandMark />
             <div className="flex items-center gap-3">
-              <BrandMark />
               <ThemeToggle />
+              <button
+                type="button"
+                className="inline-grid size-10 place-items-center rounded-lg border hairline text-white"
+                aria-label="Close navigation"
+                onClick={() => setIsOpen(false)}
+              >
+                <X size={20} aria-hidden />
+              </button>
             </div>
-            <button
-              type="button"
-              className="inline-grid size-10 place-items-center rounded-lg border hairline text-white"
-              aria-label="Close navigation"
-              onClick={() => setIsOpen(false)}
-            >
-              <X size={20} aria-hidden />
-            </button>
           </div>
           <nav className="mt-12 grid gap-2" aria-label="Mobile navigation">
             {navItems.map((item) => (
