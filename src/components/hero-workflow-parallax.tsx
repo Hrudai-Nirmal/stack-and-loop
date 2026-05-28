@@ -173,10 +173,11 @@ function ResearchPanel() {
 function DeliveryPanel() {
   return (
     <PanelFrame>
-      <path d="M70 62H250V122H70Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" />
-      <path d="M70 78L160 108L250 78" fill="none" stroke="currentColor" strokeLinecap="round" />
-      <path d="M96 136H224" stroke="rgba(255,255,255,0.34)" strokeLinecap="round" />
-      <circle cx="160" cy="108" r="5" fill="#f5f5f5" />
+      <path d="M82 48H238V132H82Z" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.22)" />
+      <path d="M82 64L160 100L238 64" fill="none" stroke="currentColor" strokeLinecap="round" />
+      <path d="M82 132L136 94M238 132L184 94" fill="none" stroke="rgba(255,255,255,0.18)" strokeLinecap="round" />
+      <path d="M108 148H212" stroke="rgba(255,255,255,0.34)" strokeLinecap="round" />
+      <circle cx="160" cy="100" r="5" fill="#f5f5f5" />
     </PanelFrame>
   );
 }

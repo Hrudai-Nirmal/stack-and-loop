@@ -100,18 +100,20 @@ function DesignVisual() {
   return (
     <>
       <path
-        d="M62 119L166 58L262 104L158 164Z"
+        d="M62 123L166 62L258 107L154 168Z"
         fill="rgba(255,255,255,0.035)"
         stroke="rgba(255,255,255,0.18)"
       />
-      <path d="M86 119L170 70M115 134L199 85M144 149L228 100" stroke="rgba(255,255,255,0.09)" />
-      <path d="M108 92L207 139M134 76L234 123" stroke="rgba(255,255,255,0.08)" />
-      <IsoBlock x={92} y={98} height={36} active />
-      <IsoBlock x={136} y={76} height={52} />
-      <IsoBlock x={181} y={101} height={42} active />
-      <IsoBlock x={213} y={84} height={28} />
       <path
-        d="M115 82C145 60 178 68 205 91C221 105 235 106 250 98"
+        d="M89 123L192 63M118 139L220 80M147 154L248 96M88 107L185 154M115 91L214 138M143 75L242 122"
+        stroke="rgba(255,255,255,0.09)"
+      />
+      <IsoBlock x={86} y={104} height={38} active />
+      <IsoBlock x={128} y={81} height={55} />
+      <IsoBlock x={176} y={104} height={38} active />
+      <IsoBlock x={214} y={82} height={36} />
+      <path
+        d="M112 87C145 63 178 70 205 94C222 108 237 107 251 98"
         fill="none"
         stroke="currentColor"
         strokeLinecap="round"
@@ -216,13 +218,15 @@ function IsoBlock({
   y: number;
 }) {
   const top = `M${x} ${y}L${x + 32} ${y - 18}L${x + 64} ${y}L${x + 32} ${y + 18}Z`;
-  const left = `M${x} ${y}L${x + 32} ${y + 18}V${y + 18 + height}L${x} ${y + height}Z`;
-  const right = `M${x + 32} ${y + 18}L${x + 64} ${y}V${y + height}L${x + 32} ${y + 18 + height}Z`;
+  const left = `M${x} ${y}L${x + 32} ${y + 18}L${x + 32} ${y + 18 + height}L${x} ${y + height}Z`;
+  const right = `M${x + 32} ${y + 18}L${x + 64} ${y}L${x + 64} ${y + height}L${x + 32} ${y + 18 + height}Z`;
+  const base = `M${x} ${y + height}L${x + 32} ${y + 18 + height}L${x + 64} ${y + height}`;
 
   return (
     <g>
       <path d={left} fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.2)" />
       <path d={right} fill="rgba(255,255,255,0.045)" stroke="rgba(255,255,255,0.17)" />
+      <path d={base} fill="none" stroke="rgba(255,255,255,0.16)" />
       <path
         d={top}
         fill={active ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.07)"}
