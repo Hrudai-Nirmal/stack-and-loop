@@ -99,19 +99,22 @@ function MapVisual() {
 function DesignVisual() {
   return (
     <>
+      <IsoBlock x={78} y={105} height={42} active />
+      <IsoBlock x={120} y={81} height={66} />
+      <IsoBlock x={166} y={105} height={42} active />
+      <IsoBlock x={208} y={81} height={42} />
       <path
-        d="M62 123L166 62L258 107L154 168Z"
-        fill="rgba(255,255,255,0.035)"
-        stroke="rgba(255,255,255,0.18)"
+        d="M78 147L110 165L174 165L206 147M120 147L152 165L216 165L248 147M142 135L174 153M188 135L220 153M78 147L162 98M110 165L194 116M206 147L248 123"
+        fill="none"
+        stroke="rgba(255,255,255,0.16)"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
       <path
-        d="M89 123L192 63M118 139L220 80M147 154L248 96M88 107L185 154M115 91L214 138M143 75L242 122"
-        stroke="rgba(255,255,255,0.09)"
+        d="M62 138L154 84L260 134L168 178Z"
+        fill="rgba(255,255,255,0.018)"
+        stroke="rgba(255,255,255,0.13)"
       />
-      <IsoBlock x={86} y={104} height={38} active />
-      <IsoBlock x={128} y={81} height={55} />
-      <IsoBlock x={176} y={104} height={38} active />
-      <IsoBlock x={214} y={82} height={36} />
       <path
         d="M112 87C145 63 178 70 205 94C222 108 237 107 251 98"
         fill="none"
@@ -221,6 +224,7 @@ function IsoBlock({
   const left = `M${x} ${y}L${x + 32} ${y + 18}L${x + 32} ${y + 18 + height}L${x} ${y + height}Z`;
   const right = `M${x + 32} ${y + 18}L${x + 64} ${y}L${x + 64} ${y + height}L${x + 32} ${y + 18 + height}Z`;
   const base = `M${x} ${y + height}L${x + 32} ${y + 18 + height}L${x + 64} ${y + height}`;
+  const chip = `M${x + 20} ${y + 1}L${x + 32} ${y - 6}L${x + 44} ${y + 1}L${x + 32} ${y + 8}Z`;
 
   return (
     <g>
@@ -232,7 +236,16 @@ function IsoBlock({
         fill={active ? "rgba(255,255,255,0.12)" : "rgba(255,255,255,0.07)"}
         stroke={active ? "currentColor" : "rgba(255,255,255,0.24)"}
       />
-      <circle cx={x + 32} cy={y + 2} r="3" fill={active ? "#f7f8ff" : "rgba(247,248,255,0.55)"} />
+      <path
+        d={chip}
+        fill={active ? "rgba(255,255,255,0.16)" : "rgba(255,255,255,0.09)"}
+        stroke={active ? "#f7f8ff" : "rgba(247,248,255,0.62)"}
+      />
+      <path
+        d={`M${x + 18} ${y + 7}L${x + 10} ${y + 11}M${x + 46} ${y + 7}L${x + 54} ${y + 11}M${x + 32} ${y - 8}V${y - 14}M${x + 32} ${y + 10}V${y + 15}`}
+        stroke="rgba(247,248,255,0.5)"
+        strokeLinecap="round"
+      />
     </g>
   );
 }
