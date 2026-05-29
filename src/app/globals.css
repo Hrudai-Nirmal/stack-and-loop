@@ -393,6 +393,12 @@ body::after {
   will-change: transform;
 }
 
+.beam-transition-step-track {
+  display: grid;
+  transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
+
 .beam-icon-reel__item {
   display: grid;
   height: 2.25rem;
@@ -620,6 +626,10 @@ body::after {
   }
 
   .beam-reel-track {
+    transition-duration: 0.01ms;
+  }
+
+  .beam-transition-step-track {
     transition-duration: 0.01ms;
   }
 
