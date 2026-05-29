@@ -62,9 +62,9 @@ export function LandingHero() {
             className={`max-w-4xl ${heroInteractive ? "" : "pointer-events-none"}`}
           >
             <h1 className="text-[3.85rem] leading-[1.02] font-semibold text-balance text-white md:text-[5.1rem] xl:text-[6.25rem]">
-              Smarter systems.
+              Make the work
               <br />
-              Less busywork.
+              move itself.
             </h1>
             <p className="mt-8 max-w-3xl text-[1.3rem] leading-9 text-[var(--soft)] md:text-[1.6rem] md:leading-[1.42]">
               I design AI-assisted workflows that turn repetitive work into

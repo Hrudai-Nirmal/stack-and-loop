@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Stack and Loop",
     description:
-      "Smarter systems. Less busywork. AI workflow automation for practical teams.",
+      "Make the work move itself. AI workflow automation for practical teams.",
     url: "/",
     siteName: "Stack and Loop",
     type: "website",
