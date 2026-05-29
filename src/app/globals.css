@@ -358,6 +358,29 @@ body::after {
   flex: 0 0 auto;
 }
 
+.beam-task-icon {
+  border-color: color-mix(in srgb, var(--task-color) 62%, transparent);
+  background: var(--task-bg);
+  color: var(--task-color);
+  animation: beam-task-enter 0.42s ease both;
+}
+
+.beam-task-label {
+  animation: beam-task-enter 0.42s ease both;
+}
+
+@keyframes beam-task-enter {
+  from {
+    opacity: 0;
+    transform: translateY(0.25rem);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .theme-switch input {
   height: 0;
   width: 0;
@@ -566,6 +589,11 @@ body::after {
 @media (prefers-reduced-motion: reduce) {
   .theme-switch__cloud,
   .theme-switch__star {
+    animation: none;
+  }
+
+  .beam-task-icon,
+  .beam-task-label {
     animation: none;
   }
 
