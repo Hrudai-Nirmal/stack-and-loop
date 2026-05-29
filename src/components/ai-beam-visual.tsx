@@ -1,19 +1,38 @@
 "use client";
 
 import {
+  AudioLines,
+  BellRing,
   Bot,
   CalendarDays,
-  ClipboardList,
   Database,
+  FilePenLine,
+  FileSearch,
   FileText,
+  FileUser,
   Globe2,
+  Kanban,
+  LifeBuoy,
+  ListChecks,
   Mail,
+  MailCheck,
+  Mic,
+  PackageCheck,
+  PenLine,
+  Radar,
+  ReceiptText,
   Search,
+  UserPlus,
   UserRound,
 } from "lucide-react";
 import { useReducedMotion } from "motion/react";
 import React from "react";
 import { AnimatedBeam } from "@/components/ui/animated-beam";
+import { Gmail } from "@/components/ui/svgs/gmail";
+import { GoogleSheets } from "@/components/ui/svgs/googleSheets";
+import { Notion } from "@/components/ui/svgs/notion";
+import { SanityDark } from "@/components/ui/svgs/sanityDark";
+import { Slack } from "@/components/ui/svgs/slack";
 
 type RotatingTask = {
   label: string;
@@ -24,84 +43,55 @@ type RotatingTask = {
 
 const taskColumns: RotatingTask[][] = [
   [
-    {
-      label: "Lead intake",
-      icon: <Mail size={20} />,
-      color: "#4ecdc4",
-      background: "rgba(78, 205, 196, 0.14)",
-    },
-    {
-      label: "Gmail triage",
-      icon: <GmailIcon />,
-      color: "#ea4335",
-      background: "rgba(234, 67, 53, 0.13)",
-    },
-    {
-      label: "Form replies",
-      icon: <FormIcon />,
-      color: "#7c3aed",
-      background: "rgba(124, 58, 237, 0.13)",
-    },
-    {
-      label: "Calendar booking",
-      icon: <CalendarDays size={20} />,
-      color: "#34a853",
-      background: "rgba(52, 168, 83, 0.13)",
-    },
+    task("Lead intake", <Mail size={20} />, "#4ecdc4"),
+    task("Gmail triage", <Gmail className="size-5" />, "#ea4335"),
+    task("Contact forms", <FormIcon />, "#7c3aed"),
+    task("Meeting requests", <CalendarDays size={20} />, "#34a853"),
+    task("Calendar booking", <CalendarDays size={20} />, "#4285f4"),
+    task("Support tickets", <LifeBuoy size={20} />, "#f97316"),
+    task("Client onboarding", <UserPlus size={20} />, "#a27b5c"),
+    task("Invoice intake", <ReceiptText size={20} />, "#f59e0b"),
+    task("Job applications", <FileUser size={20} />, "#60a5fa"),
+    task("Voice notes", <Mic size={20} />, "#ec4899"),
   ],
   [
-    {
-      label: "Research",
-      icon: <FileText size={20} />,
-      color: "#dcd7c9",
-      background: "rgba(220, 215, 201, 0.1)",
-    },
-    {
-      label: "Web scanning",
-      icon: <Globe2 size={20} />,
-      color: "#f59e0b",
-      background: "rgba(245, 158, 11, 0.13)",
-    },
-    {
-      label: "Notion notes",
-      icon: <NotionIcon />,
-      color: "#f4f4f4",
-      background: "rgba(244, 244, 244, 0.1)",
-    },
-    {
-      label: "Doc summaries",
-      icon: <Search size={20} />,
-      color: "#60a5fa",
-      background: "rgba(96, 165, 250, 0.13)",
-    },
+    task("Web research", <Globe2 size={20} />, "#f59e0b"),
+    task("Competitor monitoring", <Radar size={20} />, "#ef4444"),
+    task("Doc summaries", <FileText size={20} />, "#dcd7c9"),
+    task("Call transcripts", <AudioLines size={20} />, "#22c55e"),
+    task("CRM enrichment", <Database size={20} />, "#ff7a59"),
+    task("Prospect research", <Search size={20} />, "#60a5fa"),
+    task("Content briefs", <PenLine size={20} />, "#c084fc"),
+    task("Notion lookup", <Notion className="size-5" />, "#f4f4f4"),
+    task("Contract extraction", <FileSearch size={20} />, "#fbbf24"),
+    task("Feedback clusters", <ClusterIcon />, "#fb7185"),
   ],
   [
-    {
-      label: "Tasks",
-      icon: <ClipboardList size={20} />,
-      color: "#a27b5c",
-      background: "rgba(162, 123, 92, 0.16)",
-    },
-    {
-      label: "Slack routing",
-      icon: <SlackIcon />,
-      color: "#36c5f0",
-      background: "rgba(54, 197, 240, 0.13)",
-    },
-    {
-      label: "Sheet updates",
-      icon: <SheetsIcon />,
-      color: "#0f9d58",
-      background: "rgba(15, 157, 88, 0.13)",
-    },
-    {
-      label: "CRM cleanup",
-      icon: <Database size={20} />,
-      color: "#ff7a59",
-      background: "rgba(255, 122, 89, 0.13)",
-    },
+    task("Slack routing", <Slack className="size-5" />, "#36c5f0"),
+    task("Sheet updates", <GoogleSheets className="size-5" />, "#0f9d58"),
+    task("CRM cleanup", <Database size={20} />, "#ff7a59"),
+    task("Follow-up drafts", <MailCheck size={20} />, "#4ecdc4"),
+    task("Proposal drafts", <FilePenLine size={20} />, "#a78bfa"),
+    task("Status updates", <ListChecks size={20} />, "#38bdf8"),
+    task("Task creation", <Kanban size={20} />, "#f97316"),
+    task("Client handoff", <PackageCheck size={20} />, "#dcd7c9"),
+    task("Approval reminders", <BellRing size={20} />, "#facc15"),
+    task("CMS updates", <SanityDark className="size-5" />, "#f03e2f"),
   ],
 ];
+
+function task(label: string, icon: React.ReactNode, color: string): RotatingTask {
+  return {
+    label,
+    icon,
+    color,
+    background: colorToBackground(color),
+  };
+}
+
+function colorToBackground(color: string) {
+  return `${color}24`;
+}
 
 export function AIBeamVisual() {
   const shouldReduceMotion = useReducedMotion();
@@ -120,15 +110,10 @@ export function AIBeamVisual() {
 
     const interval = window.setInterval(() => {
       setTick((current) => current + 1);
-    }, 2200);
+    }, 2100);
 
     return () => window.clearInterval(interval);
   }, [shouldReduceMotion]);
-
-  const rotatingTasks = taskColumns.map((column, index) => {
-    const currentIndex = shouldReduceMotion ? 0 : (tick + index) % column.length;
-    return column[currentIndex];
-  });
 
   const beamProps = {
     containerRef,
@@ -149,31 +134,32 @@ export function AIBeamVisual() {
       <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.055),transparent_42%)]" />
       <div className="relative grid min-h-[20rem] items-center gap-6 md:min-h-[24rem] md:grid-cols-[0.9fr_0.8fr_0.9fr]">
         <div className="grid gap-4">
-          <BeamNode ref={intakeRef} task={rotatingTasks[0]} />
-          <BeamNode ref={researchRef} task={rotatingTasks[1]} />
-          <BeamNode ref={routingRef} task={rotatingTasks[2]} />
+          <BeamNode ref={intakeRef} tasks={taskColumns[0]} index={tick} />
+          <BeamNode ref={researchRef} tasks={taskColumns[1]} index={tick + 3} />
+          <BeamNode ref={routingRef} tasks={taskColumns[2]} index={tick + 6} />
         </div>
         <div className="grid place-items-center">
           <BeamNode
             ref={aiRef}
-            task={{
-              label: "AI workflow",
-              icon: <Bot size={24} />,
-              color: "var(--accent)",
-              background: "var(--accent-soft)",
-            }}
+            tasks={[
+              {
+                label: "AI workflow",
+                icon: <Bot size={24} />,
+                color: "var(--accent)",
+                background: "var(--accent-soft)",
+              },
+            ]}
+            index={0}
             prominent
           />
         </div>
         <div className="grid place-items-center md:justify-items-end">
           <BeamNode
             ref={humanRef}
-            task={{
-              label: "Human review",
-              icon: <UserRound size={24} />,
-              color: "#dcd7c9",
-              background: "rgba(220, 215, 201, 0.1)",
-            }}
+            tasks={[
+              task("Human review", <UserRound size={24} />, "#dcd7c9"),
+            ]}
+            index={0}
             prominent
           />
         </div>
@@ -197,10 +183,14 @@ export function AIBeamVisual() {
 const BeamNode = React.forwardRef<
   HTMLDivElement,
   {
-    task: RotatingTask;
+    tasks: RotatingTask[];
+    index: number;
     prominent?: boolean;
   }
->(function BeamNode({ task, prominent = false }, ref) {
+>(function BeamNode({ index, prominent = false, tasks }, ref) {
+  const activeIndex = tasks.length === 1 ? 0 : index % tasks.length;
+  const activeTask = tasks[activeIndex];
+
   return (
     <div
       ref={ref}
@@ -208,66 +198,53 @@ const BeamNode = React.forwardRef<
         prominent ? "min-w-44 justify-center py-5 text-white" : "w-full max-w-56"
       }`}
     >
-      <span
-        key={`${task.label}-icon`}
-        className="beam-task-icon grid size-9 place-items-center rounded-lg border"
+      <Reel
+        tasks={tasks}
+        activeIndex={activeIndex}
+        kind="icon"
         style={
           {
-            "--task-color": task.color,
-            "--task-bg": task.background,
+            "--task-color": activeTask.color,
+            "--task-bg": activeTask.background,
           } as React.CSSProperties
         }
-      >
-        {task.icon}
-      </span>
-      <span key={task.label} className="beam-task-label text-sm font-medium">
-        {task.label}
-      </span>
+      />
+      <Reel tasks={tasks} activeIndex={activeIndex} kind="label" />
     </div>
   );
 });
 
-function GmailIcon() {
+function Reel({
+  activeIndex,
+  kind,
+  style,
+  tasks,
+}: {
+  activeIndex: number;
+  kind: "icon" | "label";
+  style?: React.CSSProperties;
+  tasks: RotatingTask[];
+}) {
   return (
-    <svg viewBox="0 0 24 24" className="size-5" aria-hidden>
-      <path d="M4.5 6.5h15v11h-15z" fill="#fff" />
-      <path d="M5.25 6.5 12 11.55 18.75 6.5" fill="none" stroke="#ea4335" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.4" />
-      <path d="M5.25 7.35v9.15" stroke="#34a853" strokeLinecap="round" strokeWidth="2.4" />
-      <path d="M18.75 7.35v9.15" stroke="#4285f4" strokeLinecap="round" strokeWidth="2.4" />
-      <path d="M5.25 16.5h13.5" stroke="#fbbc04" strokeLinecap="round" strokeWidth="2.4" />
-    </svg>
-  );
-}
-
-function SlackIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="size-5" aria-hidden>
-      <rect x="10.1" y="3" width="3.2" height="8.2" rx="1.6" fill="#36c5f0" />
-      <rect x="3" y="10.1" width="8.2" height="3.2" rx="1.6" fill="#36c5f0" />
-      <rect x="12.8" y="3" width="3.2" height="8.2" rx="1.6" transform="rotate(90 14.4 7.1)" fill="#2eb67d" />
-      <rect x="12.8" y="12.8" width="8.2" height="3.2" rx="1.6" fill="#2eb67d" />
-      <rect x="10.1" y="12.8" width="3.2" height="8.2" rx="1.6" fill="#ecb22e" />
-      <rect x="3" y="7.4" width="8.2" height="3.2" rx="1.6" transform="rotate(90 7.1 9)" fill="#e01e5a" />
-    </svg>
-  );
-}
-
-function SheetsIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="size-5" aria-hidden>
-      <path d="M7 3h7l4 4v14H7z" fill="#0f9d58" />
-      <path d="M14 3v5h4" fill="#8fd1ac" />
-      <path d="M9.25 10.25h6.5M9.25 13h6.5M9.25 15.75h6.5M11.25 10.25v5.5M13.75 10.25v5.5" stroke="#fff" strokeLinecap="round" strokeWidth="0.9" />
-    </svg>
-  );
-}
-
-function NotionIcon() {
-  return (
-    <svg viewBox="0 0 24 24" className="size-5" aria-hidden>
-      <path d="M5 4.5 16.9 3.6 20 6.05v13.1L7.3 20.4 4 17.95V6.4z" fill="#f7f7f7" stroke="#111" strokeLinejoin="round" strokeWidth="1.2" />
-      <path d="M8.2 8h2.3l4.1 6.3V8.6l-1.2-.15V8h3.2v.45l-1.1.15v8h-1.4l-4.8-7.2v6.4l1.35.18v.44H7.2v-.44l1.25-.18V8.7L8.2 8.45z" fill="#111" />
-    </svg>
+    <span
+      className={kind === "icon" ? "beam-icon-reel" : "beam-label-reel"}
+      style={style}
+      aria-hidden={kind === "icon"}
+    >
+      <span
+        className="beam-reel-track"
+        style={{ transform: `translateY(-${activeIndex * (kind === "icon" ? 2.25 : 1.5)}rem)` }}
+      >
+        {tasks.map((taskItem) => (
+          <span
+            key={taskItem.label}
+            className={kind === "icon" ? "beam-icon-reel__item" : "beam-label-reel__item"}
+          >
+            {kind === "icon" ? taskItem.icon : taskItem.label}
+          </span>
+        ))}
+      </span>
+    </span>
   );
 }
 
@@ -277,6 +254,17 @@ function FormIcon() {
       <rect x="5" y="3.8" width="14" height="16.4" rx="2.2" fill="#7c3aed" />
       <path d="M8.1 8.2h7.8M8.1 11.8h7.8M8.1 15.4h3.8" stroke="#fff" strokeLinecap="round" strokeWidth="1.5" />
       <circle cx="16.2" cy="15.4" r="1.3" fill="#fbbf24" />
+    </svg>
+  );
+}
+
+function ClusterIcon() {
+  return (
+    <svg viewBox="0 0 24 24" className="size-5" aria-hidden>
+      <circle cx="7.2" cy="8" r="3" fill="#fb7185" />
+      <circle cx="16.6" cy="7.2" r="2.5" fill="#fda4af" />
+      <circle cx="14.8" cy="16.2" r="3.3" fill="#be123c" />
+      <path d="M9.7 9.2 13.9 14M14.1 8.7 9.8 8.3" stroke="#ffe4e6" strokeLinecap="round" strokeWidth="1.25" />
     </svg>
   );
 }

@@ -358,27 +358,46 @@ body::after {
   flex: 0 0 auto;
 }
 
-.beam-task-icon {
+.beam-icon-reel {
+  --beam-reel-step: 2.25rem;
+  display: block;
+  height: 2.25rem;
+  width: 2.25rem;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--task-color) 62%, transparent);
+  border-radius: 0.5rem;
   border-color: color-mix(in srgb, var(--task-color) 62%, transparent);
   background: var(--task-bg);
   color: var(--task-color);
-  animation: beam-task-enter 0.42s ease both;
 }
 
-.beam-task-label {
-  animation: beam-task-enter 0.42s ease both;
+.beam-label-reel {
+  --beam-reel-step: 1.5rem;
+  display: block;
+  height: 1.5rem;
+  min-width: 0;
+  overflow: hidden;
 }
 
-@keyframes beam-task-enter {
-  from {
-    opacity: 0;
-    transform: translateY(0.25rem);
-  }
+.beam-reel-track {
+  display: grid;
+  transition: transform 0.72s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform;
+}
 
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.beam-icon-reel__item {
+  display: grid;
+  height: 2.25rem;
+  place-items: center;
+}
+
+.beam-label-reel__item {
+  display: flex;
+  height: 1.5rem;
+  align-items: center;
+  white-space: nowrap;
+  font-size: 0.875rem;
+  font-weight: 500;
 }
 
 .theme-switch input {
@@ -592,9 +611,8 @@ body::after {
     animation: none;
   }
 
-  .beam-task-icon,
-  .beam-task-label {
-    animation: none;
+  .beam-reel-track {
+    transition-duration: 0.01ms;
   }
 
   .theme-switch__slider,
