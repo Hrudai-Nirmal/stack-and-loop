@@ -358,7 +358,8 @@ body::after {
   flex: 0 0 auto;
 }
 
-.beam-icon-reel {
+.beam-icon-reel,
+.beam-static-icon {
   --beam-reel-step: 2.25rem;
   display: block;
   height: 2.25rem;
@@ -369,6 +370,13 @@ body::after {
   border-color: color-mix(in srgb, var(--task-color) 62%, transparent);
   background: var(--task-bg);
   color: var(--task-color);
+}
+
+.beam-static-icon {
+  display: grid;
+  height: 2rem;
+  width: 2rem;
+  place-items: center;
 }
 
 .beam-label-reel {

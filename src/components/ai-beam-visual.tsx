@@ -41,6 +41,11 @@ type RotatingTask = {
   background: string;
 };
 
+type ManualTask = RotatingTask & {
+  left: string;
+  top: string;
+};
+
 const taskColumns: RotatingTask[][] = [
   [
     task("Lead intake", <Mail size={20} />, "#4ecdc4"),
@@ -80,6 +85,19 @@ const taskColumns: RotatingTask[][] = [
   ],
 ];
 
+const manualTasks: ManualTask[] = [
+  { ...taskColumns[0][0], left: "13%", top: "22%" },
+  { ...taskColumns[0][1], left: "31%", top: "13%" },
+  { ...taskColumns[0][2], left: "55%", top: "14%" },
+  { ...taskColumns[0][3], left: "78%", top: "24%" },
+  { ...taskColumns[1][0], left: "86%", top: "48%" },
+  { ...taskColumns[1][2], left: "76%", top: "74%" },
+  { ...taskColumns[2][0], left: "55%", top: "84%" },
+  { ...taskColumns[2][1], left: "31%", top: "78%" },
+  { ...taskColumns[2][2], left: "13%", top: "58%" },
+  { ...taskColumns[2][8], left: "18%", top: "39%" },
+];
+
 function task(label: string, icon: React.ReactNode, color: string): RotatingTask {
   return {
     label,
@@ -95,8 +113,14 @@ function colorToBackground(color: string) {
 
 export function AIBeamVisual() {
   const shouldReduceMotion = useReducedMotion();
+  const [automated, setAutomated] = React.useState(false);
   const [tick, setTick] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
+  const manualHumanRef = React.useRef<HTMLDivElement>(null);
+  const manualTaskRefs = React.useMemo(
+    () => manualTasks.map(() => React.createRef<HTMLDivElement>()),
+    [],
+  );
   const intakeRef = React.useRef<HTMLDivElement>(null);
   const researchRef = React.useRef<HTMLDivElement>(null);
   const routingRef = React.useRef<HTMLDivElement>(null);
@@ -132,6 +156,12 @@ export function AIBeamVisual() {
     duration: shouldReduceMotion ? 0.001 : 5.4,
     reverse: true,
   };
+  const manualBeamClassName = `transition-opacity duration-700 ${
+    automated ? "opacity-0" : "opacity-100"
+  }`;
+  const automatedBeamClassName = `transition-opacity duration-700 ${
+    automated ? "opacity-100" : "opacity-0"
+  }`;
 
   return (
     <div
@@ -139,7 +169,44 @@ export function AIBeamVisual() {
       className="relative min-h-[24rem] overflow-hidden rounded-lg border hairline bg-white/[0.025] p-6 md:min-h-[28rem] md:p-8"
     >
       <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.055),transparent_42%)]" />
-      <div className="relative grid min-h-[20rem] items-center gap-6 md:min-h-[24rem] md:grid-cols-[0.9fr_0.8fr_0.9fr]">
+      <button
+        type="button"
+        onClick={() => setAutomated(true)}
+        disabled={automated}
+        className="absolute right-5 top-5 z-30 rounded-lg border border-[var(--accent-line)] bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-white transition hover:bg-[var(--accent-line)] disabled:cursor-default disabled:opacity-80"
+      >
+        {automated ? "Automated" : "Automate"}
+      </button>
+
+      <div
+        className={`absolute inset-0 z-10 transition-opacity duration-700 ${
+          automated ? "pointer-events-none opacity-0" : "opacity-100"
+        }`}
+      >
+        <div
+          ref={manualHumanRef}
+          className="absolute left-1/2 top-1/2 z-20 flex -translate-x-1/2 -translate-y-1/2 items-center gap-3 rounded-lg border hairline bg-black/46 px-5 py-4 text-white backdrop-blur-sm"
+        >
+          <span className="grid size-11 place-items-center rounded-lg border border-white/20 bg-white/8 text-white">
+            <UserRound size={24} aria-hidden />
+          </span>
+          <span className="text-sm font-medium">Human operator</span>
+        </div>
+
+        {manualTasks.map((taskItem, index) => (
+          <ManualTaskNode
+            key={taskItem.label}
+            ref={manualTaskRefs[index]}
+            task={taskItem}
+          />
+        ))}
+      </div>
+
+      <div
+        className={`relative z-10 grid min-h-[20rem] items-center gap-6 transition-opacity duration-700 md:min-h-[24rem] md:grid-cols-[0.9fr_0.8fr_0.9fr] ${
+          automated ? "opacity-100" : "pointer-events-none opacity-0"
+        }`}
+      >
         <div className="grid gap-4">
           <BeamNode ref={intakeRef} tasks={taskColumns[0]} index={tick} />
           <BeamNode ref={researchRef} tasks={taskColumns[1]} index={tick + 3} />
@@ -172,14 +239,41 @@ export function AIBeamVisual() {
         </div>
       </div>
 
-      <AnimatedBeam {...beamProps} fromRef={intakeRef} toRef={aiRef} curvature={-42} />
-      <AnimatedBeam {...returnBeamProps} fromRef={intakeRef} toRef={aiRef} curvature={-42} delay={1.1} />
-      <AnimatedBeam {...beamProps} fromRef={researchRef} toRef={aiRef} delay={0.8} />
-      <AnimatedBeam {...returnBeamProps} fromRef={researchRef} toRef={aiRef} delay={1.9} />
-      <AnimatedBeam {...beamProps} fromRef={routingRef} toRef={aiRef} curvature={42} delay={1.6} />
-      <AnimatedBeam {...returnBeamProps} fromRef={routingRef} toRef={aiRef} curvature={42} delay={2.7} />
+      {manualTaskRefs.map((taskRef, index) => {
+        const curvature = (index % 2 === 0 ? 34 : -34) + (index % 3) * 8;
+        return (
+          <React.Fragment key={manualTasks[index].label}>
+            <AnimatedBeam
+              {...beamProps}
+              className={manualBeamClassName}
+              fromRef={taskRef}
+              toRef={manualHumanRef}
+              curvature={curvature}
+              delay={index * 0.18}
+              duration={shouldReduceMotion ? 0.001 : 5.8}
+            />
+            <AnimatedBeam
+              {...returnBeamProps}
+              className={manualBeamClassName}
+              fromRef={taskRef}
+              toRef={manualHumanRef}
+              curvature={curvature}
+              delay={0.9 + index * 0.18}
+              duration={shouldReduceMotion ? 0.001 : 6.2}
+            />
+          </React.Fragment>
+        );
+      })}
+
+      <AnimatedBeam className={automatedBeamClassName} {...beamProps} fromRef={intakeRef} toRef={aiRef} curvature={-42} />
+      <AnimatedBeam className={automatedBeamClassName} {...returnBeamProps} fromRef={intakeRef} toRef={aiRef} curvature={-42} delay={1.1} />
+      <AnimatedBeam className={automatedBeamClassName} {...beamProps} fromRef={researchRef} toRef={aiRef} delay={0.8} />
+      <AnimatedBeam className={automatedBeamClassName} {...returnBeamProps} fromRef={researchRef} toRef={aiRef} delay={1.9} />
+      <AnimatedBeam className={automatedBeamClassName} {...beamProps} fromRef={routingRef} toRef={aiRef} curvature={42} delay={1.6} />
+      <AnimatedBeam className={automatedBeamClassName} {...returnBeamProps} fromRef={routingRef} toRef={aiRef} curvature={42} delay={2.7} />
       <AnimatedBeam
         {...beamProps}
+        className={automatedBeamClassName}
         fromRef={aiRef}
         toRef={humanRef}
         curvature={0}
@@ -189,6 +283,34 @@ export function AIBeamVisual() {
     </div>
   );
 }
+
+const ManualTaskNode = React.forwardRef<
+  HTMLDivElement,
+  {
+    task: ManualTask;
+  }
+>(function ManualTaskNode({ task }, ref) {
+  return (
+    <div
+      ref={ref}
+      className="absolute z-10 flex w-36 -translate-x-1/2 -translate-y-1/2 items-center gap-2 rounded-lg border hairline bg-black/34 px-3 py-2 text-white/84 backdrop-blur-sm md:w-40"
+      style={{ left: task.left, top: task.top }}
+    >
+      <span
+        className="beam-static-icon grid size-8 shrink-0 place-items-center rounded-lg border"
+        style={
+          {
+            "--task-color": task.color,
+            "--task-bg": task.background,
+          } as React.CSSProperties
+        }
+      >
+        {task.icon}
+      </span>
+      <span className="truncate text-xs font-medium md:text-sm">{task.label}</span>
+    </div>
+  );
+});
 
 const BeamNode = React.forwardRef<
   HTMLDivElement,
