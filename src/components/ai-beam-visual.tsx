@@ -119,7 +119,6 @@ export function AIBeamVisual() {
   const shouldReduceMotion = useReducedMotion();
   const [mode, setMode] = React.useState<"manual" | "transition" | "automated">("manual");
   const [automationStep, setAutomationStep] = React.useState(0);
-  const [instantManualReturn, setInstantManualReturn] = React.useState(false);
   const [tick, setTick] = React.useState(0);
   const containerRef = React.useRef<HTMLDivElement>(null);
   const manualHumanRef = React.useRef<HTMLDivElement>(null);
@@ -153,12 +152,12 @@ export function AIBeamVisual() {
     }
 
     const stepTimers = [
-      window.setTimeout(() => setAutomationStep(1), 850),
-      window.setTimeout(() => setAutomationStep(2), 1700),
+      window.setTimeout(() => setAutomationStep(1), 1200),
+      window.setTimeout(() => setAutomationStep(2), 2400),
     ];
     const doneTimer = window.setTimeout(() => {
       setMode("automated");
-    }, 2800);
+    }, 4000);
 
     return () => {
       stepTimers.forEach((timer) => window.clearTimeout(timer));
@@ -183,9 +182,7 @@ export function AIBeamVisual() {
     duration: shouldReduceMotion ? 0.001 : 5.4,
     reverse: true,
   };
-  const modeFadeClassName = instantManualReturn
-    ? "transition-none"
-    : "transition-opacity duration-700";
+  const modeFadeClassName = "transition-opacity duration-700";
   const manualBeamClassName = `${modeFadeClassName} ${
     mode === "manual" ? "opacity-100" : "opacity-0"
   }`;
@@ -202,14 +199,11 @@ export function AIBeamVisual() {
 
   function toggleAutomation() {
     if (mode === "automated") {
-      setInstantManualReturn(true);
       setMode("manual");
-      window.setTimeout(() => setInstantManualReturn(false), 40);
       return;
     }
 
     if (mode === "manual") {
-      setInstantManualReturn(false);
       setAutomationStep(0);
       if (shouldReduceMotion) {
         setMode("automated");
@@ -231,7 +225,7 @@ export function AIBeamVisual() {
         disabled={mode === "transition"}
         className="absolute right-5 top-5 z-30 rounded-lg border border-[var(--accent-line)] bg-[var(--accent-soft)] px-4 py-2 text-sm font-medium text-white transition hover:bg-[var(--accent-line)] disabled:cursor-default disabled:opacity-80"
       >
-        {mode === "automated" ? "Automated" : mode === "transition" ? "Automating" : "Automate"}
+        {mode === "automated" ? "Manualise" : mode === "transition" ? "Automating" : "Automate"}
       </button>
 
       <div
