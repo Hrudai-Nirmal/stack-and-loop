@@ -125,6 +125,13 @@ export function AIBeamVisual() {
     duration: shouldReduceMotion ? 0.001 : 4.8,
     repeat: shouldReduceMotion ? 0 : Infinity,
   };
+  const returnBeamProps = {
+    ...beamProps,
+    pathOpacity: 0,
+    pathWidth: 1.2,
+    duration: shouldReduceMotion ? 0.001 : 5.4,
+    reverse: true,
+  };
 
   return (
     <div
@@ -166,8 +173,11 @@ export function AIBeamVisual() {
       </div>
 
       <AnimatedBeam {...beamProps} fromRef={intakeRef} toRef={aiRef} curvature={-42} />
+      <AnimatedBeam {...returnBeamProps} fromRef={intakeRef} toRef={aiRef} curvature={-42} delay={1.1} />
       <AnimatedBeam {...beamProps} fromRef={researchRef} toRef={aiRef} delay={0.8} />
+      <AnimatedBeam {...returnBeamProps} fromRef={researchRef} toRef={aiRef} delay={1.9} />
       <AnimatedBeam {...beamProps} fromRef={routingRef} toRef={aiRef} curvature={42} delay={1.6} />
+      <AnimatedBeam {...returnBeamProps} fromRef={routingRef} toRef={aiRef} curvature={42} delay={2.7} />
       <AnimatedBeam
         {...beamProps}
         fromRef={aiRef}
