@@ -143,7 +143,7 @@ body::after {
 
 .page-shell {
   min-height: 100vh;
-  padding: 7.5rem 1.25rem 0;
+  padding: 6.25rem 1.25rem 0;
 }
 
 .container {
@@ -249,7 +249,7 @@ body::after {
 
 @media (max-width: 720px) {
   .page-shell {
-    padding-top: 6.25rem;
+    padding-top: 5.75rem;
   }
 }
 
@@ -501,20 +501,21 @@ body::after {
 }
 
 .theme-switch__ray {
+  inset: 0;
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.18);
 }
 
 .theme-switch__ray--one {
-  inset: -0.5rem;
+  inset: 0;
 }
 
 .theme-switch__ray--two {
-  inset: -0.78rem;
+  inset: -0.08rem;
 }
 
 .theme-switch__ray--three {
-  inset: -1.05rem;
+  inset: -0.16rem;
 }
 
 .theme-switch input:checked + .theme-switch__slider .theme-switch__ray {

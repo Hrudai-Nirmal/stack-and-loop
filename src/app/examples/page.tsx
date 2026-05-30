@@ -19,7 +19,7 @@ export default function ExamplesPage() {
         description="These are illustrative patterns, not named case studies. They show the kind of repetitive work Stack and Loop can turn into cleaner systems."
       />
 
-      <section className="container py-20 md:py-28">
+      <section className="container py-14 md:py-28">
         <div className="grid gap-5">
           {examples.map((example) => (
             <WorkflowMini key={example.title} example={example} />

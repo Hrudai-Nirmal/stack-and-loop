@@ -18,7 +18,7 @@ export default function ProcessPage() {
         description="The work stays structured and transparent: map what happens today, design the loop, build the first reliable system, then improve it with real use."
       />
 
-      <section className="container py-20 md:py-28">
+      <section className="container py-14 md:py-28">
         <ProcessTimeline />
       </section>
 

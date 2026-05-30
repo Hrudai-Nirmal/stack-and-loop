@@ -22,13 +22,13 @@ export default function ServicesPage() {
         description="Stack and Loop focuses on the practical middle: the handoffs, repeated decisions, and tool-to-tool movement that quietly consume your week."
       />
 
-      <section className="container grid gap-10 py-20 md:grid-cols-[0.85fr_1.15fr] md:py-28">
+      <section className="container grid gap-10 py-14 md:grid-cols-[0.85fr_1.15fr] md:py-28">
         <div>
-          <h2 className="text-4xl font-semibold leading-tight text-white md:text-5xl">
+          <h2 className="text-[clamp(2.1rem,8vw,3rem)] font-semibold leading-tight text-white md:text-5xl">
             The service is not more software. It is a cleaner way for work to
             move.
           </h2>
-          <p className="mt-6 text-xl leading-9 text-[var(--muted)]">
+          <p className="mt-5 text-[clamp(1.05rem,4.4vw,1.22rem)] leading-8 text-[var(--muted)] md:mt-6 md:text-xl md:leading-9">
             Each engagement starts with the workflow you already have, then
             turns the repeatable parts into a system with useful AI assistance
             and clear human checks.
@@ -44,8 +44,8 @@ export default function ServicesPage() {
         <WorkflowDiagram />
       </section>
 
-      <section className="container pb-24">
-        <div className="grid gap-4 md:grid-cols-2">
+      <section className="container pb-16 md:pb-24">
+        <div className="grid gap-4 lg:grid-cols-2">
           {services.map((service) => (
             <article
               key={service.title}

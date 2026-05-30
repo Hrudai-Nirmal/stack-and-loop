@@ -183,10 +183,10 @@ export function AIBeamVisual() {
     reverse: true,
   };
   const modeFadeClassName = "transition-opacity duration-700";
-  const manualBeamClassName = `${modeFadeClassName} ${
+  const manualBeamClassName = `hidden md:block ${modeFadeClassName} ${
     mode === "manual" ? "opacity-100" : "opacity-0"
   }`;
-  const automatedBeamClassName = `${modeFadeClassName} ${
+  const automatedBeamClassName = `hidden md:block ${modeFadeClassName} ${
     mode === "automated" ? "opacity-100" : "opacity-0"
   }`;
   const automatedTaskRefs = [
@@ -216,7 +216,7 @@ export function AIBeamVisual() {
   return (
     <div
       ref={containerRef}
-      className="relative min-h-[24rem] overflow-hidden rounded-lg border hairline bg-white/[0.025] p-6 md:min-h-[28rem] md:p-8"
+      className="relative min-h-[34rem] overflow-hidden rounded-lg border hairline bg-white/[0.025] p-4 pt-20 md:min-h-[28rem] md:p-8"
     >
       <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(255,255,255,0.055),transparent_42%)]" />
       <button
@@ -229,7 +229,7 @@ export function AIBeamVisual() {
       </button>
 
       <div
-        className={`absolute inset-0 z-10 ${modeFadeClassName} ${
+        className={`absolute inset-0 z-10 hidden md:block ${modeFadeClassName} ${
           mode === "manual" ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
@@ -250,6 +250,13 @@ export function AIBeamVisual() {
             task={taskItem}
           />
         ))}
+      </div>
+      <div
+        className={`z-10 md:hidden ${modeFadeClassName} ${
+          mode === "manual" ? "relative opacity-100" : "pointer-events-none absolute inset-x-4 top-20 opacity-0"
+        }`}
+      >
+        <ManualMobileView tick={tick} />
       </div>
 
       <div
@@ -280,7 +287,15 @@ export function AIBeamVisual() {
       </div>
 
       <div
-        className={`relative z-10 grid min-h-[20rem] items-center gap-6 ${modeFadeClassName} md:min-h-[24rem] md:grid-cols-[0.95fr_0.75fr_0.9fr] ${
+        className={`z-10 md:hidden ${modeFadeClassName} ${
+          mode === "automated" ? "relative opacity-100" : "pointer-events-none absolute inset-x-4 top-20 opacity-0"
+        }`}
+      >
+        <AutomatedMobileView tick={tick} />
+      </div>
+
+      <div
+        className={`relative z-10 hidden min-h-[20rem] items-center gap-6 ${modeFadeClassName} md:grid md:min-h-[24rem] md:grid-cols-[0.95fr_0.75fr_0.9fr] ${
           mode === "automated" ? "opacity-100" : "pointer-events-none opacity-0"
         }`}
       >
@@ -405,6 +420,74 @@ const ManualTaskNode = React.forwardRef<
   );
 });
 
+function ManualMobileView({ tick }: { tick: number }) {
+  return (
+    <div className="grid gap-5">
+      <div className="mx-auto flex w-full max-w-xs items-center justify-center gap-3 rounded-lg border hairline bg-black/42 px-4 py-3 text-white backdrop-blur-sm">
+        <span className="grid size-10 place-items-center rounded-lg border border-white/20 bg-white/8 text-white">
+          <UserRound size={22} aria-hidden />
+        </span>
+        <span className="text-sm font-medium">Human operator</span>
+      </div>
+      <div className="mx-auto h-10 w-px bg-[var(--line-strong)]" />
+      <div className="grid grid-cols-2 gap-3">
+        {manualTasks.map((taskItem, index) => {
+          const taskSet = taskColumns[index % taskColumns.length];
+          const activeTask = taskSet[(tick + index) % taskSet.length] ?? taskItem;
+
+          return (
+            <BeamNode
+              key={taskItem.label}
+              tasks={[activeTask]}
+              index={0}
+            />
+          );
+        })}
+      </div>
+    </div>
+  );
+}
+
+function AutomatedMobileView({ tick }: { tick: number }) {
+  return (
+    <div className="grid gap-5">
+      <div className="grid grid-cols-[1fr_auto_1fr] items-center gap-3">
+        <div className="h-px bg-[var(--line-strong)]" />
+        <BeamNode
+          tasks={[
+            {
+              label: "AI workflow",
+              icon: <Bot size={22} />,
+              color: "var(--accent)",
+              background: "var(--accent-soft)",
+            },
+          ]}
+          index={0}
+          prominent
+        />
+        <div className="h-px bg-[var(--line-strong)]" />
+      </div>
+      <div className="grid gap-3">
+        {taskColumns.map((tasks, index) => (
+          <BeamNode
+            key={tasks[0]?.label ?? index}
+            tasks={tasks}
+            index={tick + index}
+          />
+        ))}
+      </div>
+      <div className="mx-auto h-10 w-px bg-[var(--line-strong)]" />
+      <div className="mx-auto">
+        <BeamNode
+          tasks={[task("Human review", <UserRound size={22} />, "#dcd7c9")]}
+          index={0}
+          prominent
+        />
+      </div>
+    </div>
+  );
+}
+
 const BeamNode = React.forwardRef<
   HTMLDivElement,
   {
@@ -420,7 +503,7 @@ const BeamNode = React.forwardRef<
     <div
       ref={ref}
       className={`relative z-10 flex items-center gap-3 rounded-lg border hairline bg-black/34 px-4 py-3 text-white/84 backdrop-blur-sm ${
-        prominent ? "min-w-44 justify-center py-5 text-white" : "w-full max-w-56"
+        prominent ? "min-w-44 justify-center py-5 text-white" : "w-full md:max-w-56"
       }`}
     >
       <Reel

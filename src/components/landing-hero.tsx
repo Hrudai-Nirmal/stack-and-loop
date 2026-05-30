@@ -44,9 +44,9 @@ export function LandingHero() {
   return (
     <section
       ref={sectionRef}
-      className="relative left-1/2 -mt-[6.25rem] min-h-[315vh] w-screen -translate-x-1/2 overflow-clip border-b hairline md:-mt-[7.5rem]"
+      className="relative left-1/2 -mt-[6.25rem] min-h-[190svh] w-screen -translate-x-1/2 overflow-clip border-b hairline md:-mt-[7.5rem] md:min-h-[315vh]"
     >
-      <div className="sticky top-0 h-screen overflow-hidden">
+      <div className="sticky top-0 h-[100svh] overflow-hidden">
         <HeroWorkflowParallax scrollTargetRef={sectionRef} />
         <motion.div
           style={{ opacity: overlayOpacity }}
@@ -61,27 +61,27 @@ export function LandingHero() {
             style={{ opacity: contentOpacity, y: contentY }}
             className={`max-w-4xl ${heroInteractive ? "" : "pointer-events-none"}`}
           >
-            <h1 className="text-[3.85rem] leading-[1.02] font-semibold text-balance text-white md:text-[5.1rem] xl:text-[6.25rem]">
+            <h1 className="text-[clamp(3.05rem,14vw,4rem)] leading-[1.02] font-semibold text-balance text-white md:text-[5.1rem] xl:text-[6.25rem]">
               Make the work
               <br />
               move itself.
             </h1>
-            <p className="mt-8 max-w-3xl text-[1.3rem] leading-9 text-[var(--soft)] md:text-[1.6rem] md:leading-[1.42]">
+            <p className="mt-6 max-w-3xl text-[clamp(1.08rem,4.8vw,1.25rem)] leading-8 text-[var(--soft)] md:mt-8 md:text-[1.6rem] md:leading-[1.42]">
               I design AI-assisted workflows that turn repetitive work into
               reliable systems, so you and your team can move faster with fewer
               mistakes.
             </p>
-            <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row md:mt-10 md:gap-4">
               <Link
                 href="/contact"
-                className="inline-flex h-16 items-center justify-center gap-4 rounded-lg bg-[var(--accent)] px-8 text-lg font-medium text-white transition hover:bg-[var(--accent-2)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-line)]"
+                className="inline-flex h-14 items-center justify-center gap-3 rounded-lg bg-[var(--accent)] px-6 text-base font-medium text-white transition hover:bg-[var(--accent-2)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-line)] md:h-16 md:gap-4 md:px-8 md:text-lg"
               >
                 Send project brief
                 <ArrowRight size={20} aria-hidden />
               </Link>
               <Link
                 href="/process"
-                className="inline-flex h-16 items-center justify-center gap-4 rounded-lg border border-[var(--accent-line)] px-8 text-lg font-medium text-white/90 transition hover:bg-[var(--accent-soft)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-line)]"
+                className="inline-flex h-14 items-center justify-center gap-3 rounded-lg border border-[var(--accent-line)] px-6 text-base font-medium text-white/90 transition hover:bg-[var(--accent-soft)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-line)] md:h-16 md:gap-4 md:px-8 md:text-lg"
               >
                 See how it works
                 <ArrowRight size={20} aria-hidden />

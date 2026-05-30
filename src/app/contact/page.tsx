@@ -32,7 +32,7 @@ export default function ContactPage() {
         description="Send the workflow, tool stack, or recurring task that feels heavier than it should. A rough description is enough to start."
       />
 
-      <section className="container grid gap-8 py-20 lg:grid-cols-[1.15fr_0.85fr]">
+      <section className="container grid gap-8 py-14 md:py-20 lg:grid-cols-[1.15fr_0.85fr]">
         <ContactForm />
         <aside className="rounded-lg border hairline bg-white/[0.03] p-6 md:p-8">
           <h2 className="text-2xl font-medium text-white">

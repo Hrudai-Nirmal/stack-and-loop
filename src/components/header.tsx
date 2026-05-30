@@ -16,7 +16,7 @@ export function Header() {
     <header className="fixed inset-x-0 top-0 z-50 border-b hairline bg-[color-mix(in_srgb,var(--background)_88%,transparent)] px-5 backdrop-blur-xl">
       <div className="container flex h-16 items-center justify-between">
         <BrandMark />
-        <div className="hidden items-center gap-8 md:flex">
+        <div className="hidden items-center gap-8 lg:flex">
           <nav aria-label="Primary navigation" className="flex items-center gap-8">
             {navItems.map((item) => {
               const active = pathname === item.href;
@@ -44,7 +44,7 @@ export function Header() {
           </Link>
           <ThemeToggle />
         </div>
-        <div className="flex items-center gap-3 md:hidden">
+        <div className="flex items-center gap-3 lg:hidden">
           <ThemeToggle />
           <button
             type="button"
@@ -59,7 +59,7 @@ export function Header() {
       </div>
 
       {isOpen ? (
-        <div className="fixed inset-0 z-50 bg-[var(--background)] px-5 py-5 md:hidden">
+        <div className="fixed inset-0 z-50 bg-[var(--background)] px-5 py-5 lg:hidden">
           <div className="flex items-center justify-between">
             <BrandMark />
             <div className="flex items-center gap-3">
