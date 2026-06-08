@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CTASection } from "@/components/cta-section";
 import { PageHero } from "@/components/page-hero";
+import { ProcessFlowcharts } from "@/components/process-flowcharts";
 import { ProcessTimeline } from "@/components/process-timeline";
 
 export const metadata: Metadata = {
@@ -21,6 +22,8 @@ export default function ProcessPage() {
       <section className="container py-14 md:py-28">
         <ProcessTimeline />
       </section>
+
+      <ProcessFlowcharts />
 
       <CTASection />
     </div>

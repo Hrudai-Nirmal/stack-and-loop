@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ContactForm } from "@/components/contact-form";
+import { ContactOptions } from "@/components/contact-options";
 import { PageHero } from "@/components/page-hero";
 
 export const metadata: Metadata = {
@@ -33,7 +33,7 @@ export default function ContactPage() {
       />
 
       <section className="container grid gap-8 py-14 md:py-20 lg:grid-cols-[1.15fr_0.85fr]">
-        <ContactForm />
+        <ContactOptions />
         <aside className="rounded-lg border hairline bg-white/[0.03] p-6 md:p-8">
           <h2 className="text-2xl font-medium text-white">
             What happens next

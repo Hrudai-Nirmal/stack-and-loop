@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import {
   motion,
   useMotionValueEvent,
@@ -9,7 +11,6 @@ import {
   useTransform,
 } from "motion/react";
 import React from "react";
-import { ActionLinks } from "@/components/action-links";
 import { HeroWorkflowParallax } from "@/components/hero-workflow-parallax";
 
 export function LandingHero() {
@@ -70,9 +71,13 @@ export function LandingHero() {
               reliable systems for small teams, agencies, and operators who
               want clearer systems and calmer work.
             </p>
-            <div className="mt-8 md:mt-10">
-              <ActionLinks />
-            </div>
+            <Link
+              href="/contact"
+              className="mt-8 inline-flex h-14 items-center justify-center gap-3 rounded-lg bg-[var(--accent)] px-6 text-base font-medium text-white transition hover:bg-[var(--accent-2)] md:mt-10 md:h-16 md:px-8 md:text-lg"
+            >
+              Contact
+              <ArrowRight size={20} aria-hidden />
+            </Link>
           </motion.div>
         </div>
       </div>

@@ -16,7 +16,7 @@ export function ActionLinks({ compact = false }: ActionLinksProps) {
       </ActionLink>
       <ActionLink href={workflowChatHref}>
         <CalendarDays size={18} aria-hidden />
-        Book workflow chat
+        Book a call/meeting
       </ActionLink>
       <ActionLink href={sampleWorkflowHref}>
         See sample breakdown

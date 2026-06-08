@@ -4,7 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { CTASection } from "@/components/cta-section";
 import { PageHero } from "@/components/page-hero";
 import { ServiceVisual } from "@/components/service-visual";
-import { WorkflowDiagram } from "@/components/workflow-diagram";
+import { SMBServiceExamples } from "@/components/smb-service-examples";
 import { faqs, pricingSignal, services } from "@/lib/content";
 
 export const metadata: Metadata = {
@@ -52,7 +52,7 @@ export default function ServicesPage() {
             <ArrowRight size={18} aria-hidden />
           </Link>
         </div>
-        <WorkflowDiagram />
+        <SMBServiceExamples />
       </section>
 
       <section className="container pb-16 md:pb-24">

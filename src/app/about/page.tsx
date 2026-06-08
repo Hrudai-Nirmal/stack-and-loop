@@ -3,7 +3,6 @@ import { ActionLinks } from "@/components/action-links";
 import { CTASection } from "@/components/cta-section";
 import { FounderCard } from "@/components/founder-card";
 import { PageHero } from "@/components/page-hero";
-import { founder } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "About",
@@ -32,7 +31,7 @@ export default function AboutPage() {
       <PageHero
         label="About"
         title="A solo-run consultancy, built around clear systems."
-        description={`${founder.name} works with small teams, agencies, and operators who want repetitive work to move with less manual coordination.`}
+        description="I work with small teams, agencies, and operators who want repetitive work to move with less manual coordination."
       />
 
       <section className="container py-14 md:py-24">
