@@ -18,11 +18,12 @@ export function Footer() {
         <div>
           <BrandMark />
           <p className="mt-5 max-w-xl leading-7 text-[var(--muted)]">
-            AI workflow automation for practical teams. Project brief details
-            are used only to understand your request and respond.
+            AI workflow automation for small teams, agencies, and operators.
+            Project brief details are used only to understand your request and
+            respond.
           </p>
         </div>
-        <nav className="grid grid-cols-2 gap-x-12 gap-y-3 text-sm text-white/70 sm:grid-cols-5 md:grid-cols-1">
+        <nav className="grid grid-cols-2 gap-x-12 gap-y-3 text-sm text-white/70 sm:grid-cols-3 md:grid-cols-1">
           {navItems.map((item) => (
             <Link key={item.href} href={item.href} className="hover:text-white">
               {item.label}

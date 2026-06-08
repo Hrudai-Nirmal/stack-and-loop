@@ -15,14 +15,14 @@ export default function ExamplesPage() {
     <div className="page-shell">
       <PageHero
         label="Examples"
-        title="Workflow patterns you can recognize quickly."
-        description="These are illustrative patterns, not named case studies. They show the kind of repetitive work Stack and Loop can turn into cleaner systems."
+        title="Sample workflow breakdowns, without pretending they are case studies."
+        description="These are illustrative patterns, not named client stories. They show how repetitive work can be shaped into a clearer system before anything gets automated."
       />
 
       <section className="container py-14 md:py-28">
         <div className="grid gap-5">
           {examples.map((example) => (
-            <WorkflowMini key={example.title} example={example} />
+            <WorkflowMini key={example.title} example={example} detailed />
           ))}
         </div>
       </section>

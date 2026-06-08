@@ -1,11 +1,11 @@
 # Stack and Loop Context
 
 ## Project
-Stack and Loop is a solo AI workflow automation consultancy for founders, operators, agencies, creators, and small-to-medium businesses. The website should feel premium, highly approachable, and clear about turning repetitive work into reliable AI-assisted systems.
+Stack and Loop is a solo AI workflow automation consultancy for small teams, agencies, and operators. The website should feel premium, highly approachable, and clear about turning repetitive work into reliable AI-assisted systems.
 
 ## Current Plan
 - Built a fresh Next.js App Router site with TypeScript, Tailwind, ESLint, npm, and Vercel deployment in mind.
-- Launch routes: Home, Services, Process, Examples, Contact.
+- Launch routes: Home, Services, Process, Examples, About, Contact.
 - Use a premium theme system inspired by Linear but distinct: crisp typography, subtle loop motif, low cognitive load, restrained motion, a warm stone/olive/brown light mode, and a black/white/teal-cyan dark mode.
 - Current visual direction: monochrome landing hero parallax that settles into an interactive services grid, diagram-first service visuals, and a process flow that includes automation insights/dashboard visibility in Step 4.
 - Process visual refinement: Step 1 uses interconnected task boxes, Step 2 uses a diagonal 3D agent surface, Step 3 uses a simple loop animation, and Step 4 uses an insights/metrics dashboard.
@@ -28,15 +28,23 @@ Stack and Loop is a solo AI workflow automation consultancy for founders, operat
 - Process Step 2 accenting: only the processor/chip elements on the tops of the module boxes should use the accent color.
 - Copy voice: clear, calm, confident, human, and low-jargon.
 - Brand: refined Stack and Loop wordmark plus a subtle loop motif.
+- Founder/trust layer: public founder is Hrudai Nirmal, AI Workflow Designer, based in Bangalore, India. Positioning line: "Helping small teams turn repetitive work into reliable systems." Bio line: "I design AI workflows that take the repetitive work off your team's plate." LinkedIn: `https://www.linkedin.com/in/hrudai-nirmal-0b589b1b8`.
+- Conversion direction: keep `Send project brief` as the primary CTA, and support lower-friction paths for booking a workflow chat, viewing a sample workflow breakdown, and connecting on LinkedIn. `NEXT_PUBLIC_CALENDLY_URL` is optional; when absent, workflow chat links fall back to `/contact`.
+- Pricing direction: show a public starting signal for workflow audits at `₹15,000 / $160`, with USD based on the planning conversion `1 USD = ₹95`. Contact budget ranges default to INR with a UI toggle for USD.
+- Examples direction: `/examples` must provide deeper anonymized workflow breakdowns than the homepage cards, using pain, workflow, tools involved, expected outcome, and handoff. Do not present them as named case studies.
+- FAQ direction: include practical buyer objections around existing tools, non-technical maintenance, sensitive data, support after delivery, and project timelines.
+- Domain note: keep the production domain as `stackandloop.hrudainirmal.in` for now.
 - GitHub repository: `https://github.com/Hrudai-Nirmal/stack-and-loop.git`.
 - Commit and push workspace changes after implementation work so Vercel can deploy from GitHub.
 
 ## Contact Form
 - Fields: name, email, company/project, automation goal, tools used, timeline, optional budget range, notes.
+- Budget range defaults to INR and can be switched to USD; the submitted value includes the selected currency.
 - Submit to `POST /api/project-brief`.
 - Send notification email to the site owner via Resend.
 - Show an on-page acknowledgement only; no auto-reply in v1.
 - Required env vars: `RESEND_API_KEY`, `CONTACT_TO_EMAIL`, `CONTACT_FROM_EMAIL`, `NEXT_PUBLIC_SITE_URL`.
+- Optional env var: `NEXT_PUBLIC_CALENDLY_URL` for the workflow chat CTA.
 - The Resend API key will be configured in Vercel environment variables, not committed locally.
 - Vercel Web Analytics is included, with a project brief submitted event fired from the client after a successful response.
 

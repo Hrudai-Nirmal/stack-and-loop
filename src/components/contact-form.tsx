@@ -7,6 +7,7 @@ import { ArrowRight, CheckCircle2, Loader2 } from "lucide-react";
 import { budgetRanges, timelineOptions } from "@/lib/content";
 
 type FormState = "idle" | "submitting" | "success" | "error";
+type BudgetCurrency = keyof typeof budgetRanges;
 
 const initialForm = {
   name: "",
@@ -22,6 +23,7 @@ const initialForm = {
 
 export function ContactForm() {
   const [form, setForm] = useState(initialForm);
+  const [budgetCurrency, setBudgetCurrency] = useState<BudgetCurrency>("INR");
   const [state, setState] = useState<FormState>("idle");
   const [message, setMessage] = useState("");
 
@@ -34,7 +36,10 @@ export function ContactForm() {
       const response = await fetch("/api/project-brief", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(form),
+        body: JSON.stringify({
+          ...form,
+          budgetRange: `${budgetCurrency}: ${form.budgetRange}`,
+        }),
       });
       const result = (await response.json()) as { message?: string };
 
@@ -60,6 +65,11 @@ export function ContactForm() {
 
   function updateField(name: keyof typeof form, value: string) {
     setForm((current) => ({ ...current, [name]: value }));
+  }
+
+  function updateBudgetCurrency(currency: BudgetCurrency) {
+    setBudgetCurrency(currency);
+    updateField("budgetRange", "Not sure yet");
   }
 
   return (
@@ -148,6 +158,25 @@ export function ContactForm() {
           </select>
         </Field>
         <Field label="Budget range optional" htmlFor="budgetRange">
+          <div className="mb-3 inline-grid rounded-full border hairline bg-white/[0.03] p-1 text-sm">
+            <div className="grid grid-cols-2">
+              {(["INR", "USD"] as const).map((currency) => (
+                <button
+                  key={currency}
+                  type="button"
+                  onClick={() => updateBudgetCurrency(currency)}
+                  className={`rounded-full px-4 py-2 font-medium transition ${
+                    budgetCurrency === currency
+                      ? "bg-[var(--accent)] text-white"
+                      : "text-white/62 hover:text-white"
+                  }`}
+                  aria-pressed={budgetCurrency === currency}
+                >
+                  {currency}
+                </button>
+              ))}
+            </div>
+          </div>
           <select
             id="budgetRange"
             name="budgetRange"
@@ -155,7 +184,7 @@ export function ContactForm() {
             onChange={(event) => updateField("budgetRange", event.target.value)}
             className="field"
           >
-            {budgetRanges.map((range) => (
+            {budgetRanges[budgetCurrency].map((range) => (
               <option key={range} value={range}>
                 {range}
               </option>

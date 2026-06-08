@@ -2,6 +2,7 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { AIBeamVisual } from "@/components/ai-beam-visual";
 import { CTASection } from "@/components/cta-section";
+import { FounderCard } from "@/components/founder-card";
 import { LandingHero } from "@/components/landing-hero";
 import { ProcessTimeline } from "@/components/process-timeline";
 import { WorkflowMini } from "@/components/workflow-mini";
@@ -11,6 +12,10 @@ export default function Home() {
   return (
     <div className="page-shell">
       <LandingHero />
+
+      <section className="container py-16 md:py-24">
+        <FounderCard />
+      </section>
 
       <section className="border-y hairline bg-white/[0.025]">
         <div className="container grid gap-10 px-5 py-16 md:gap-12 md:py-32">

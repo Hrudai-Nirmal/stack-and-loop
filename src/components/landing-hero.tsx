@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
 import {
   motion,
   useMotionValueEvent,
@@ -11,6 +9,7 @@ import {
   useTransform,
 } from "motion/react";
 import React from "react";
+import { ActionLinks } from "@/components/action-links";
 import { HeroWorkflowParallax } from "@/components/hero-workflow-parallax";
 
 export function LandingHero() {
@@ -68,24 +67,11 @@ export function LandingHero() {
             </h1>
             <p className="mt-6 max-w-3xl text-[clamp(1.08rem,4.8vw,1.25rem)] leading-8 text-[var(--soft)] md:mt-8 md:text-[1.6rem] md:leading-[1.42]">
               I design AI-assisted workflows that turn repetitive work into
-              reliable systems, so you and your team can move faster with fewer
-              mistakes.
+              reliable systems for small teams, agencies, and operators who
+              want clearer systems and calmer work.
             </p>
-            <div className="mt-8 flex flex-col gap-3 sm:flex-row md:mt-10 md:gap-4">
-              <Link
-                href="/contact"
-                className="inline-flex h-14 items-center justify-center gap-3 rounded-lg bg-[var(--accent)] px-6 text-base font-medium text-white transition hover:bg-[var(--accent-2)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-line)] md:h-16 md:gap-4 md:px-8 md:text-lg"
-              >
-                Send project brief
-                <ArrowRight size={20} aria-hidden />
-              </Link>
-              <Link
-                href="/process"
-                className="inline-flex h-14 items-center justify-center gap-3 rounded-lg border border-[var(--accent-line)] px-6 text-base font-medium text-white/90 transition hover:bg-[var(--accent-soft)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--accent-line)] md:h-16 md:gap-4 md:px-8 md:text-lg"
-              >
-                See how it works
-                <ArrowRight size={20} aria-hidden />
-              </Link>
+            <div className="mt-8 md:mt-10">
+              <ActionLinks />
             </div>
           </motion.div>
         </div>

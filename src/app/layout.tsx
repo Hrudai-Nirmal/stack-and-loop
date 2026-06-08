@@ -24,11 +24,11 @@ export const metadata: Metadata = {
     template: "%s | Stack and Loop",
   },
   description:
-    "Stack and Loop designs AI-assisted workflows that turn repetitive work into reliable systems for founders, operators, agencies, and creators.",
+    "Stack and Loop designs AI-assisted workflows that turn repetitive work into reliable systems for small teams, agencies, and operators.",
   openGraph: {
     title: "Stack and Loop",
     description:
-      "Make the work move itself. AI workflow automation for practical teams.",
+      "Make the work move itself. AI workflow automation for small teams, agencies, and operators.",
     url: "/",
     siteName: "Stack and Loop",
     type: "website",

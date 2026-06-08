@@ -1,11 +1,10 @@
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ActionLinks } from "@/components/action-links";
 
 export function CTASection() {
   return (
     <section className="px-5 pb-16 md:pb-20">
       <div className="container surface rounded-lg p-6 md:p-12">
-        <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
+        <div className="grid gap-8">
           <div>
             <p className="font-mono text-sm uppercase text-white/55">
               Start small
@@ -14,17 +13,11 @@ export function CTASection() {
               Send the workflow that keeps stealing attention.
             </h2>
             <p className="mt-5 max-w-3xl text-[clamp(1.08rem,4.5vw,1.28rem)] leading-8 text-[var(--muted)] md:mt-6 md:text-2xl md:leading-10">
-              Share what you are trying to automate, the tools involved, and
-              what a better version of the work would feel like.
+              Share what you are trying to automate, book a lower-pressure
+              workflow chat, or look through a sample breakdown first.
             </p>
           </div>
-          <Link
-            href="/contact"
-            className="inline-flex h-14 items-center justify-center gap-3 rounded-lg bg-[var(--accent)] px-6 text-base font-medium text-white transition hover:bg-[var(--accent-2)]"
-          >
-            Send project brief
-            <ArrowRight size={18} aria-hidden />
-          </Link>
+          <ActionLinks />
         </div>
       </div>
     </section>

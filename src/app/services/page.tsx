@@ -5,12 +5,12 @@ import { CTASection } from "@/components/cta-section";
 import { PageHero } from "@/components/page-hero";
 import { ServiceVisual } from "@/components/service-visual";
 import { WorkflowDiagram } from "@/components/workflow-diagram";
-import { services } from "@/lib/content";
+import { faqs, pricingSignal, services } from "@/lib/content";
 
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Workflow audits, AI-assisted operations, tool integrations, and automation maintenance for practical teams.",
+    "Workflow audits, AI-assisted operations, tool integrations, and automation maintenance for small teams, agencies, and operators.",
 };
 
 export default function ServicesPage() {
@@ -33,6 +33,17 @@ export default function ServicesPage() {
             turns the repeatable parts into a system with useful AI assistance
             and clear human checks.
           </p>
+          <div className="mt-8 rounded-lg border hairline bg-white/[0.03] p-5">
+            <p className="font-mono text-xs uppercase text-white/45">
+              Pricing signal
+            </p>
+            <p className="mt-2 text-2xl font-medium text-white">
+              {pricingSignal.inr} / {pricingSignal.usd}
+            </p>
+            <p className="mt-2 text-sm leading-6 text-[var(--muted)]">
+              {pricingSignal.note}
+            </p>
+          </div>
           <Link
             href="/process"
             className="mt-8 inline-flex items-center gap-3 text-base font-medium text-white/85 hover:text-white"
@@ -62,8 +73,39 @@ export default function ServicesPage() {
               <p className="mt-6 border-t hairline pt-6 leading-7 text-[var(--muted)]">
                 {service.detail}
               </p>
+              <p className="mt-6 rounded-lg border hairline bg-white/[0.025] p-4 leading-7 text-[var(--soft)]">
+                {service.deliverable}
+              </p>
             </article>
           ))}
+        </div>
+      </section>
+
+      <section className="container border-y hairline py-16 md:py-24">
+        <div className="grid gap-10 md:grid-cols-[0.8fr_1.2fr]">
+          <div>
+            <p className="font-mono text-sm uppercase text-white/55">
+              FAQ
+            </p>
+            <h2 className="mt-5 text-[clamp(2.2rem,8vw,3.35rem)] font-semibold leading-tight text-white">
+              Practical questions before you share access or budget.
+            </h2>
+          </div>
+          <div className="grid gap-4">
+            {faqs.map((faq) => (
+              <article
+                key={faq.question}
+                className="rounded-lg border hairline bg-white/[0.03] p-6"
+              >
+                <h3 className="text-xl font-medium text-white">
+                  {faq.question}
+                </h3>
+                <p className="mt-3 leading-7 text-[var(--muted)]">
+                  {faq.answer}
+                </p>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
